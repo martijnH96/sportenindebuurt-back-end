@@ -1,107 +1,203 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
+        onGenerateRoute: (settings) {
+          if (settings.name == PassArgumentsScreen.routeName) {
+            final ScreenArguments args = settings.arguments;
+            return MaterialPageRoute(
+              builder: (context) {
+                return PassArgumentsScreen(
+                  title: args.title,
+                  sport: args.sport,
+                );
+              },
+            );
+          }
+          assert(false, 'Need to implement ${settings.name}');
+          return null;
+        },
+        title: 'Navigation with Arguments',
+        home: HomeScreen(),
+        routes: {
+          ExtractArgumentsScreen.routeName: (context) =>
+              ExtractArgumentsScreen(),
+        });
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text('Home Screen'),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            ElevatedButton(
+              child: Text("Voetbal"),
+              onPressed: () {
+                stop =0;
+                Navigator.pushNamed(
+                  context,
+                  PassArgumentsScreen.routeName,
+                  arguments: ScreenArguments(
+                    'Voetbal materialen',
+                    'voetbal',
+                  ),
+                );
+              },
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            ElevatedButton(
+              child: Text("Basketbal"),
+              onPressed: () {
+                stop =0;
+                Navigator.pushNamed(
+                  context,
+                  PassArgumentsScreen.routeName,
+                  arguments: ScreenArguments(
+                    'Basketbal materialen',
+                    'basketbal',
+                  ),
+                );
+              },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class ExtractArgumentsScreen extends StatelessWidget {
+  static const routeName = '/extractArguments';
+
+  @override
+  Widget build(BuildContext context) {
+    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(args.title),
+      ),
+      body: Center(
+        child: Text(args.sport),
+      ),
+    );
+  }
+}
+
+String geselecteerdeSport;
+
+class PassArgumentsScreen extends StatelessWidget {
+  static const routeName = '/passArguments';
+
+  final String title;
+  final String sport;
+  const PassArgumentsScreen({
+    Key key,
+    @required this.title,
+    @required this.sport,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    geselecteerdeSport = sport;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+          child: Center(
+            child: DynamicallyCheckbox(),
+          )
+      ),
+    );
+  }
+}
+
+class ScreenArguments {
+  final String title;
+  final String sport;
+
+  ScreenArguments(this.title, this.sport);
+}
+
+class DynamicallyCheckbox extends StatefulWidget {
+  @override
+  DynamicallyCheckboxState createState() => new DynamicallyCheckboxState();
+}
+
+var stop =0;
+
+class DynamicallyCheckboxState extends State {
+
+  Map<String, bool> List;
+
+  selecteerSport() {
+    if (geselecteerdeSport == 'voetbal') {
+      List = {
+        'Voetbal': false,
+        'Basketbal': false,
+        'Honkbal': false,
+      };
+      stop =1;
+    } else if(geselecteerdeSport == 'basketbal'){
+      List = {
+        'Voetba2l': false,
+        'Basketb2a444l': false,
+        'Honk2bal': false,
+      };
+      stop =1;
+    }
+  }
+
+  var holder_1 = [];
+
+  getItems() {
+    List.forEach((key, value) {
+      if (value == true) {
+        holder_1.add(key);
+      }
+    });
+
+    print(holder_1);
+    holder_1.clear();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if(stop == 0){
+      selecteerSport();
+      stop =1;
+    }
+    // selecteerSport();
+    return Column(children: <Widget>[
+      Expanded(
+        child:
+        ListView(
+          children: List.keys.map((String key) {
+            return new CheckboxListTile(
+              title: new Text(key),
+              value: List[key],
+              activeColor: Colors.deepPurple[400],
+              checkColor: Colors.white,
+              onChanged: (bool value) {
+                setState(() {
+                  List[key] = value;
+                });
+              },
+            );
+          }).toList(),
+        ),
+      ),
+    ]);
   }
 }

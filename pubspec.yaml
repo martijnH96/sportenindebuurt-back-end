@@ -1,4 +1,4 @@
-name: Sporten_in_de_buurt
+name: han
 description: Flutter project voor sporten in de buurt.
 
 # The following line prevents the package from being accidentally published to
@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  shared_preferences: ^0.4.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

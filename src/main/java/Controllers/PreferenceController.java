@@ -26,11 +26,21 @@ public class PreferenceController {
 
 
     @POST
-    @Path("/")
+    @Path("/time")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreference(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS, List<SportsDTO> sportsDTOS){
-        preferenceService.insertSports(locationX, locationY, timeFrameDTOS, sportsDTOS);
+    public Response insertPreferenceTime(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS){
+        preferenceService.insertTime(locationX, locationY, timeFrameDTOS);
         return Response.status(200).entity("jsonObject").build();
     }
+
+    @POST
+    @Path("/sports")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response insertPreferenceSports(List<SportsDTO> sportsDTOS){
+        preferenceService.insertSports(sportsDTOS);
+        return Response.status(200).entity("jsonObject").build();
+    }
+
 }

@@ -17,10 +17,23 @@ public class PreferenceService {
 
 
 
-    public boolean insertSports(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS, List<SportsDTO> sportsDTOS){
+    public boolean insertTime(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS){
         try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
+//            PreparedStatement stmt = con.prepareStatement();
+//            ResultSet result = stmt.executeQuery();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean insertSports(List<SportsDTO> sportsDTOS){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
 //            PreparedStatement stmt = con.prepareStatement();
 //            ResultSet result = stmt.executeQuery();
 

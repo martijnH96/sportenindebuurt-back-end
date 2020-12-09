@@ -17,13 +17,23 @@ public class Database implements verbinding{
 		}
 	}
 
-	public ResultSet select(String table, String columns, String where) throws SQLException {
+	public ResultSet select(String table, String columns, String[] where) throws SQLException {
 		String sql = "SELECT " + columns + " FROM " + table;
+
+		if(where.length != 0){
+			sql.concat(" WHERE " + where[0]);
+		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 
-		//stmt.setString(1, "*");
-		//stmt.setString(1, "Sport");
+		if(where.length != 0) {
+
+			for (int i = 1; i < where.length; i++){
+				stmt.setString(i, where[i]);
+			}
+			//stmt.setString(1, "*");
+			//stmt.setString(1, "Sport");
+		}
 
 		ResultSet results = stmt.executeQuery();
 

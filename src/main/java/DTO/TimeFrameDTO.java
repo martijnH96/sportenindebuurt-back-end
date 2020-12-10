@@ -1,23 +1,23 @@
 package DTO;
 
 public class TimeFrameDTO {
+    private String beginTime;
+    private String endTime;
     private String day;
-    private double beginTime;
-    private double endTime;
 
-    public double getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(double endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
-    public double getBeginTime() {
+    public String getBeginTime() {
         return beginTime;
     }
 
-    public void setBeginTime(double beginTime) {
+    public void setBeginTime(String beginTime) {
         this.beginTime = beginTime;
     }
 

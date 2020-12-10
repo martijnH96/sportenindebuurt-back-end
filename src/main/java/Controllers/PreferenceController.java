@@ -29,8 +29,8 @@ public class PreferenceController {
     @Path("/time")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreferenceTime(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS){
-        preferenceService.insertTime(locationX, locationY, timeFrameDTOS);
+    public Response insertPreferenceTime(List<TimeFrameDTO> timeFrameDTOS){
+        preferenceService.insertTime(timeFrameDTOS);
         return Response.status(200).entity("jsonObject").build();
     }
 

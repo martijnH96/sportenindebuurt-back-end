@@ -63,7 +63,14 @@ public class Database implements verbinding{
 
 		sql.concat(")");
 
-		//String sql = "INSERT INTO" + table
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		//System.out.println("perpared");
+
+		for(int i = 0; i < data.length; i++){
+			stmt.setString(i + 1, data[i]);
+		}
+
+		int i = stmt.executeUpdate();
 	}
 
 	public void update(String table, String columns, String data, String where) throws SQLException {

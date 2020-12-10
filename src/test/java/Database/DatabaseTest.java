@@ -12,4 +12,12 @@ public class DatabaseTest {
 	}
 
 	//tijd om een test te schrijven
+	@Test
+	void selectTestLukt(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

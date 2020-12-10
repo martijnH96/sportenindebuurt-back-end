@@ -45,8 +45,25 @@ public class Database implements verbinding{
 		return results;
 	}
 
-	public void insert(String table, String columns, String data) throws SQLException {
+	public void insert(String table, String columns, String[] data) throws SQLException {
+		String sql;
+		if(columns.isEmpty()){
+			sql = "INSERT INTO " + table + " VALUES (";
+		} else {
+			sql = "INSERT INTO " + table + " (" + columns + " ) VALUES (";
+		}
 
+		for(int i = 0; i < data.length; i++){
+			if(i == 0){
+				sql.concat("?");
+			} else {
+				sql.concat(", ?");
+			}
+		}
+
+		sql.concat(")");
+
+		//String sql = "INSERT INTO" + table
 	}
 
 	public void update(String table, String columns, String data, String where) throws SQLException {

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+// voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
+
 public class Database implements verbinding{
 	private Connection conn;
 

@@ -12,7 +12,7 @@ public class Database implements verbinding{
 
 	public Database(){
 		try {
-			conn = maakVerbinding();
+			conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 		} catch (SQLException sql){
 			System.out.println("dit gaat fout");
 			sql.printStackTrace();

@@ -10,4 +10,6 @@ public class DatabaseTest {
 	public void setup(){
 		testDB = new Database();
 	}
+
+	//tijd om een test te schrijven
 }

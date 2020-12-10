@@ -73,8 +73,27 @@ public class Database implements verbinding{
 		int i = stmt.executeUpdate();
 	}
 
-	public void update(String table, String columns, String data, String where) throws SQLException {
+	public void update(String table, String[] columns, String[] data, String[] where) throws SQLException {
+		String sql = "INSERT " + table + " SET ";
 
+		for (int i = 0; i < data.length; i++){
+			if (i == 0){
+				sql.concat(columns[i] + " = ?");
+			} else {
+				sql.concat(", " + columns[i] + " = ?");
+			}
+		}
+
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1,"tennis");
+		stmt.setInt(2, 2);
+		stmt.setString(3,"niets");
+
+		//stmt.executeQuery();
+		//ResultSet results = stmt.executeQuery();
+		int i = stmt.executeUpdate();
+
+		System.out.println(i);
 	}
 
 	public void execute(String procedure, String[] values) throws SQLException {

@@ -89,11 +89,13 @@ public class Database implements verbinding{
 		stmt.setInt(2, 2);
 		stmt.setString(3,"niets");
 
-		//stmt.executeQuery();
-		//ResultSet results = stmt.executeQuery();
+		for (int i = 0; i < data.length; i++){
+			stmt.setString(i + 1, data[i]);
+		}
+
 		int i = stmt.executeUpdate();
 
-		System.out.println(i);
+		//System.out.println(i);
 	}
 
 	public void execute(String procedure, String[] values) throws SQLException {

@@ -13,7 +13,15 @@ public class DatabaseTest {
 
 	//tijd om een test te schrijven
 	@Test
-	void selectTestLukt(){
+	void selectTestRight(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	void selectTestRightWhere(){
 		//arrange
 
 		//act
@@ -40,7 +48,70 @@ public class DatabaseTest {
 	}
 
 	@Test
-	void insertTestJuist(){
+	void insertTestRight(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void insertTestWrongTable(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void insertTestIllegalInput(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void insertTestExistingInput(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void updateTestRight(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void updateTestRightWhere(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void updateTestWrongTable(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void updateTestIllegalInput(){
 		//arrange
 
 		//act

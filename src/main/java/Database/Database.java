@@ -4,24 +4,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 // voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
 
 public class Database implements verbinding{
-	private Connection conn;
+	//private Connection conn;
 
 	public Database(){
-		try {
-			conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
-			conn.close();
-		} catch (SQLException sql){
-			System.out.println("dit gaat fout");
-			sql.printStackTrace();
-		}
+		//niets te doen
 	}
 
-	public String[] select(String table, String columns, String[] where) throws SQLException {
-		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+	public Connection verbind() throws SQLException {
+		return maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+	}
+
+	public void closeConnection(Connection conn) throws SQLException{
+		conn.close();
+	}
+
+	public ResultSet select(String table, String columns, String[] where, Connection conn) throws SQLException {
+		//conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql = "SELECT " + columns + " FROM " + table;
 
@@ -40,20 +43,12 @@ public class Database implements verbinding{
 			//stmt.setString(1, "Sport");
 		}
 
-		ResultSet results = stmt.executeQuery();
+		ResultSet resultSet = stmt.executeQuery();
 
-		/* tijdens het testen in een andere app heb ik dit gebruikt
-		while (results.next()){
-			System.out.println(results.getString(1) + " ");
-		}*/
-
-		conn.close();
-
-		String[] kut = new String[0];
-		return kut;
+		return resultSet;
 	}
 
-	public int insert(String table, String columns, String[] data) throws SQLException {
+	public int insert(String table, String columns, String[] data, Connection conn) throws SQLException {
 		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql;
@@ -87,7 +82,7 @@ public class Database implements verbinding{
 		return i;
 	}
 
-	public int update(String table, String[] columns, String[] data, String[] where) throws SQLException {
+	public int update(String table, String[] columns, String[] data, String[] where, Connection conn) throws SQLException {
 		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql = "INSERT " + table + " SET ";
@@ -117,7 +112,7 @@ public class Database implements verbinding{
 	}
 
 	/*
-	public void execute(String procedure, String[] values) throws SQLException {
+	public void execute(String procedure, String[] values, Connection conn) throws SQLException {
 		//komt mischien later
 	}
 	*/

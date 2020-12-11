@@ -13,6 +13,7 @@ public class Database implements verbinding{
 	public Database(){
 		try {
 			conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+			conn.close();
 		} catch (SQLException sql){
 			System.out.println("dit gaat fout");
 			sql.printStackTrace();
@@ -20,6 +21,8 @@ public class Database implements verbinding{
 	}
 
 	public ResultSet select(String table, String columns, String[] where) throws SQLException {
+		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+
 		String sql = "SELECT " + columns + " FROM " + table;
 
 		if(where.length != 0){
@@ -44,10 +47,14 @@ public class Database implements verbinding{
 			System.out.println(results.getString(1) + " ");
 		}*/
 
+		conn.close();
+
 		return results;
 	}
 
 	public int insert(String table, String columns, String[] data) throws SQLException {
+		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+
 		String sql;
 		if(columns.isEmpty()){
 			sql = "INSERT INTO " + table + " VALUES (";
@@ -74,10 +81,14 @@ public class Database implements verbinding{
 
 		int i = stmt.executeUpdate();
 
+		conn.close();
+
 		return i;
 	}
 
 	public int update(String table, String[] columns, String[] data, String[] where) throws SQLException {
+		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+
 		String sql = "INSERT " + table + " SET ";
 
 		for (int i = 0; i < data.length; i++){
@@ -99,10 +110,14 @@ public class Database implements verbinding{
 
 		int i = stmt.executeUpdate();
 
+		conn.close();
+
 		return i;
 	}
 
+	/*
 	public void execute(String procedure, String[] values) throws SQLException {
-
+		//komt mischien later
 	}
+	*/
 }

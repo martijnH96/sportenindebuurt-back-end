@@ -20,4 +20,22 @@ public class DatabaseTest {
 
 		//assert
 	}
+
+	@Test
+	void selectTestNoResult(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	void selectTestWrongTable(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

@@ -20,7 +20,7 @@ public class Database implements verbinding{
 		}
 	}
 
-	public ResultSet select(String table, String columns, String[] where) throws SQLException {
+	public String[] select(String table, String columns, String[] where) throws SQLException {
 		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql = "SELECT " + columns + " FROM " + table;
@@ -49,7 +49,8 @@ public class Database implements verbinding{
 
 		conn.close();
 
-		return results;
+		String[] kut = new String[0];
+		return kut;
 	}
 
 	public int insert(String table, String columns, String[] data) throws SQLException {

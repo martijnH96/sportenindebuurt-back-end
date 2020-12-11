@@ -31,11 +31,14 @@ public class DatabaseTest {
 		//voer query uit en krij resultaat
 		try {
 			result = testDB.select("test", "*", where);
+
+			while (!result.next()) {
+				lines++;
+				result.getString(2);
+			}
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();
 		}
-
-		
 
 		//assert
 		//check resultaat met verwachte resultaat

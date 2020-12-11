@@ -38,4 +38,13 @@ public class DatabaseTest {
 
 		//assert
 	}
+
+	@Test
+	void insertTestJuist(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

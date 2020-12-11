@@ -47,7 +47,7 @@ public class Database implements verbinding{
 		return results;
 	}
 
-	public void insert(String table, String columns, String[] data) throws SQLException {
+	public int insert(String table, String columns, String[] data) throws SQLException {
 		String sql;
 		if(columns.isEmpty()){
 			sql = "INSERT INTO " + table + " VALUES (";
@@ -73,9 +73,11 @@ public class Database implements verbinding{
 		}
 
 		int i = stmt.executeUpdate();
+
+		return i;
 	}
 
-	public void update(String table, String[] columns, String[] data, String[] where) throws SQLException {
+	public int update(String table, String[] columns, String[] data, String[] where) throws SQLException {
 		String sql = "INSERT " + table + " SET ";
 
 		for (int i = 0; i < data.length; i++){
@@ -97,7 +99,7 @@ public class Database implements verbinding{
 
 		int i = stmt.executeUpdate();
 
-		//System.out.println(i);
+		return i;
 	}
 
 	public void execute(String procedure, String[] values) throws SQLException {

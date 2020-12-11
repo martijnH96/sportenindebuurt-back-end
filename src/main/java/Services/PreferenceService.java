@@ -17,7 +17,7 @@ public class PreferenceService {
 
 
 
-    public boolean insertTime(double locationX, double locationY, List<TimeFrameDTO> timeFrameDTOS){
+    public boolean insertTime(List<TimeFrameDTO> timeFrameDTOS){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);

@@ -3,6 +3,9 @@ package Database;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class DatabaseTest {
 	Database testDB;
 	public final ExpectedException exception = ExpectedException.none();
@@ -15,10 +18,25 @@ public class DatabaseTest {
 	@Test
 	void selectTestRight(){
 		//arrange
+		//maak db aan
+		setup();
+		String table = "test";
+		String columns = "*";
+		String[] where = new String[0];
 
 		//act
+		//voer query uit en krij resultaat
+
+		ResultSet result = null;
+		try {
+			result = testDB.select("test", "*", where);
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
 
 		//assert
+		//check resultaat met verwachte resultaat
+		
 	}
 
 	void selectTestRightWhere(){

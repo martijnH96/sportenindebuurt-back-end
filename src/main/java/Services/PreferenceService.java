@@ -1,9 +1,12 @@
 package Services;
 
+import DTO.ListDTO.SportsListDTO;
+import DTO.ListDTO.TimeFrameListDTO;
 import DTO.SportsDTO;
 import DTO.TimeFrameDTO;
 
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,10 +20,11 @@ public class PreferenceService {
 
 
 
-    public boolean insertTime(List<TimeFrameDTO> timeFrameDTOS){
+    public boolean insertTime(TimeFrameListDTO timeFrameListDTO){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
+            return true;
 //            PreparedStatement stmt = con.prepareStatement();
 //            ResultSet result = stmt.executeQuery();
 
@@ -30,10 +34,11 @@ public class PreferenceService {
         return false;
     }
 
-    public boolean insertSports(List<SportsDTO> sportsDTOS){
+    public boolean insertSports(SportsListDTO sportsListDTO){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
+            return true;
 //            PreparedStatement stmt = con.prepareStatement();
 //            ResultSet result = stmt.executeQuery();
 

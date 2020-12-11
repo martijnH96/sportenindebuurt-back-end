@@ -2,7 +2,7 @@ package DTO;
 
 public class SportsDTO {
     private String sport;
-    private int sportLevel;
+    private double sportLevel;
 
     public void setSport(String sport) {
         this.sport = sport;
@@ -12,11 +12,11 @@ public class SportsDTO {
         return sport;
     }
 
-    public int getSportLevel() {
+    public double getSportLevel() {
         return sportLevel;
     }
 
-    public void setSportLevel(int sportLevel) {
+    public void setSportLevel(double sportLevel) {
         this.sportLevel = sportLevel;
     }
 }

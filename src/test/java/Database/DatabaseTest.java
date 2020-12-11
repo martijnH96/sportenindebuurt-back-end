@@ -1,5 +1,6 @@
 package Database;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
@@ -23,20 +24,22 @@ public class DatabaseTest {
 		String table = "test";
 		String columns = "*";
 		String[] where = new String[0];
+		ResultSet result = null;
+		int lines = 0;
 
 		//act
 		//voer query uit en krij resultaat
-
-		ResultSet result = null;
 		try {
 			result = testDB.select("test", "*", where);
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();
 		}
 
+		
+
 		//assert
 		//check resultaat met verwachte resultaat
-		
+		Assertions.assertTrue(lines > 1);
 	}
 
 	void selectTestRightWhere(){

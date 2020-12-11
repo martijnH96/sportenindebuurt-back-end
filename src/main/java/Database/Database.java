@@ -43,6 +43,8 @@ public class Database implements verbinding{
 			//stmt.setString(1, "Sport");
 		}
 
+		System.out.println(sql);
+
 		ResultSet resultSet = stmt.executeQuery();
 
 		return resultSet;

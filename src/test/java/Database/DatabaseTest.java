@@ -39,13 +39,16 @@ public class DatabaseTest {
 	@Test
 	void selectTestRight(){
 		//arrange
-		//maak db aan
-		setup();
+		String test = "test";
+		String columns = "*";
+		String[] where = new String[0];
+		ResultSet result = null;
+		var lines = 0;
 
 		//act
 		//voer query uit en krij resultaat
 		try {
-			//result = testDB.select("test", "*", where);
+			result = testDB.select(test, columns, where, conn);
 
 			while (!result.next()) {
 				lines++;
@@ -57,7 +60,7 @@ public class DatabaseTest {
 
 		//assert
 		//check resultaat met verwachte resultaat
-		Assertions.assertTrue(lines > 1);
+		Assertions.assertEquals(1, lines);
 	}
 
 	void selectTestRightWhere(){

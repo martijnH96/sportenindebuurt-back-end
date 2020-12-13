@@ -56,15 +56,54 @@ public class VerbindingTest implements verbinding {
 	@Test
 	void maakVerbindingTestWrongDB(){
 		//test verbinding met verkeerde DB
+
+		//arrange
+
+		//act
+		try {
+			conn = testDB.maakVerbinding("jdbc:mysql://145.74.104.78:3306/test",
+					"application", "cM1l:Qze");
+		} catch (SQLException sqlException){
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		exception.expect(SQLException.class);
 	}
 
 	@Test
 	void maakVerbindingTestWrongUser(){
 		//test verbinding verkeerde user
+
+		//arrange
+
+		//act
+		try {
+			conn = testDB.maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt",
+					"developer", "cM1l:Qze");
+		} catch (SQLException sqlException){
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		exception.expect(SQLException.class);
 	}
 
 	@Test
 	void maakVerbindingTestWrongPassword(){
 		//test verbinding met verkeerde wachtwoord
+
+		//arrange
+
+		//act
+		try {
+			conn = testDB.maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt",
+					"application", "cM1l:Qz");
+		} catch (SQLException sqlException){
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		exception.expect(SQLException.class);
 	}
 }

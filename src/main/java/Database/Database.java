@@ -8,6 +8,24 @@ import java.util.ArrayList;
 
 // voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
 
+/*
+* uitleg voor gebruik van deze class
+*
+* 1. maak de Database aan, constructor heeft niks nodig
+*
+* 2. maak een verbinding --> functie verbind
+* 	2.1. geeft een Connection terug
+*
+* 3. voer query uit --> select, insert of update mss komt execute later nog
+* 	3.1. select geeft result set terug
+* 		3.1.1. zet je result set in een arrayList/array voordat je doorgaat met de met deze handleiding
+* 			tip: maak er direct JSON objecten van en zet deze in de arrayList
+*
+* 4. sluit de verbinding --> twee mogelijkheden
+* 	4.1 de functie close Connection geef je de verbinding aan mee
+* 	4.2 doe <Connection>.close()
+* */
+
 public class Database implements verbinding{
 	//private Connection conn;
 

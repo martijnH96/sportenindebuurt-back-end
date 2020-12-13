@@ -11,6 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class VerbindingTest {
+	Connection conn;
+	public final ExpectedException exception = ExpectedException.none();
+
 	// ----------------- //
 	// verbinding testen //
 	// ----------------- //
@@ -18,6 +21,7 @@ public class VerbindingTest {
 	@Test
 	void maakVerbindingTestCorrect(){
 		//test de verbinding juist
+
 	}
 
 	@Test

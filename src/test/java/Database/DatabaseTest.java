@@ -68,6 +68,7 @@ public class DatabaseTest {
 		Assertions.assertEquals(1, lines);
 	}
 
+	@Test
 	void selectTestRightWhere(){
 		//arrange
 

@@ -37,35 +37,6 @@ public class DatabaseTest {
 
 	//tijd om een test te schrijven
 
-	// ----------------- //
-	// verbinding testen //
-	// ----------------- //
-
-	@Test
-	void maakVerbindingTestCorrect(){
-		//test de verbinding juist
-	}
-
-	@Test
-	void maakVerbindingTestWrongAddres(){
-		//test verbinding met verkeerde adres link
-	}
-
-	@Test
-	void maakVerbindingTestWrongDB(){
-		//test verbinding met verkeerde DB
-	}
-
-	@Test
-	void maakVerbindingTestWrongUser(){
-		//test verbinding verkeerde user
-	}
-
-	@Test
-	void maakVerbindingTestWrongPassword(){
-		//test verbinding met verkeerde wachtwoord
-	}
-
 	// ----------- //
 	// test select //
 	// ----------- //

@@ -94,6 +94,10 @@ public class DatabaseTest {
 		//assert
 	}
 
+	// ------------ //
+	// test inserts //
+	// ------------ //
+
 	@Test
 	void insertTestRight(){
 		//arrange
@@ -129,6 +133,10 @@ public class DatabaseTest {
 
 		//assert
 	}
+
+	// ------------ //
+	// test updates //
+	// ------------ //
 
 	@Test
 	void updateTestRight(){

@@ -10,7 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VerbindingTest {
+public class VerbindingTest implements verbinding {
+	Database testDB = new Database();
 	Connection conn;
 	public final ExpectedException exception = ExpectedException.none();
 
@@ -20,8 +21,18 @@ public class VerbindingTest {
 
 	@Test
 	void maakVerbindingTestCorrect(){
-		//test de verbinding juist
+		//arrange
 
+		//act
+		try {
+			conn = testDB.maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt",
+					"application", "cM1l:Qze");
+		} catch (SQLException sqlException){
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		Assertions.assertNotNull(conn);
 	}
 
 	@Test

@@ -38,6 +38,19 @@ public class VerbindingTest implements verbinding {
 	@Test
 	void maakVerbindingTestWrongAddres(){
 		//test verbinding met verkeerde adres link
+
+		//arrange
+
+		//act
+		try {
+			conn = testDB.maakVerbinding("jdbc:mysql://145.74.104.88:3306/sportenInDeBuurt",
+					"application", "cM1l:Qze");
+		} catch (SQLException sqlException){
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		exception.expect(SQLException.class);
 	}
 
 	@Test

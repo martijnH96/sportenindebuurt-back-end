@@ -10,7 +10,7 @@ public interface SportingGroundDAO {
 	public SportingGroundDTO selectID(int id);
 
 	//select on category
-	public SportingGroundDTO[] selectWhere(String where);
+	public SportingGroundDTO[] selectWhere(String[] statements, String[] variables);
 
 	//update
 	public void update(String[] tables, String[] values);

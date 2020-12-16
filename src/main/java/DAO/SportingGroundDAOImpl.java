@@ -20,7 +20,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	}
 
 	@Override
-	public SportingGroundDTO[] selectWhere(String where) {
+	public SportingGroundDTO[] selectWhere(String[] statements, String[] variables) {
 		return new SportingGroundDTO[0];
 	}
 

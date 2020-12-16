@@ -1,4 +1,4 @@
 package DAO;
 
-public class EventDAO {
+public interface EventDAO {
 }

@@ -1,4 +1,4 @@
 package DAO;
 
-public class FieldDAO {
+public interface FieldDAO {
 }

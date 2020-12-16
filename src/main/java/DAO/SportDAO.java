@@ -1,4 +1,4 @@
 package DAO;
 
-public class SportDAO {
+public interface SportDAO {
 }

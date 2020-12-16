@@ -5,13 +5,13 @@ import DTO.SportsDTO;
 import java.util.List;
 
 public class SportsListDTO {
-    private List<SportsDTO> sportsDTOList;
+    private List<SportsDTO> sportsListDTO;
 
     public List<SportsDTO> getSportsDTOList() {
-        return sportsDTOList;
+        return sportsListDTO;
     }
 
     public void setSportsDTOList(List<SportsDTO> sportsDTOList) {
-        this.sportsDTOList = sportsDTOList;
+        this.sportsListDTO = sportsDTOList;
     }
 }

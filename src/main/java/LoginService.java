@@ -2,19 +2,19 @@ import java.sql.*;
 
 public class LoginService {
 
-    String dbUsername = "root";
-    String dbPassword = "";
-    String serverName = "jdbc:mysql://localhost:3306/sportenindebuurt";
+    String dbUsername = "application";
+    String dbPassword = "cM1l:Qze";
+    String serverName = "jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt";
 
     public boolean login(String username, String password) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(serverName, dbUsername, dbPassword);
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM login WHERE Username = ?");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Sporter WHERE email = ?");
             stmt.setString(1, username);
             ResultSet result = stmt.executeQuery();
             while (result.next()) {
-                if (username.equals(result.getString("Username")) && password.equals(result.getString("Password"))) {
+                if (username.equals(result.getString("email")) && password.equals(result.getString("wachtwoord"))) {
                     return true;
                 } else {
                     return false;

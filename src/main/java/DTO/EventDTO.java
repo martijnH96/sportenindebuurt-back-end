@@ -1,23 +1,32 @@
 package DTO;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class EventDTO {
+	private int Id;
 	private String sport;
 	private int field;
 	private int numberOfParticipants;
+	private Date date;
 	private ArrayList<String> participants;
 	private String postalcode;
 	private int housenumber;
 
-	public EventDTO(String sport, int field, int numberOfParticipants,
+	public EventDTO(int id, String sport, int field, int numberOfParticipants, Date date,
 					ArrayList<String> participants, String postalcode, int housenumber) {
+		Id = id;
 		this.sport = sport;
 		this.field = field;
 		this.numberOfParticipants = numberOfParticipants;
+		this.date = date;
 		this.participants = participants;
 		this.postalcode = postalcode;
 		this.housenumber = housenumber;
+	}
+
+	public int getId() {
+		return Id;
 	}
 
 	public String getSport() {
@@ -30,6 +39,10 @@ public class EventDTO {
 
 	public int getNumberOfParticipants() {
 		return numberOfParticipants;
+	}
+
+	public Date getDate() {
+		return date;
 	}
 
 	public ArrayList<String> getParticipants() {
@@ -48,6 +61,10 @@ public class EventDTO {
 		this.sport = sport;
 	}
 
+	public void setId(int id) {
+		Id = id;
+	}
+
 	public void setField(int field) {
 		this.field = field;
 	}
@@ -58,6 +75,10 @@ public class EventDTO {
 
 	public void setParticipants(ArrayList<String> participants) {
 		this.participants = participants;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public void setPostalcode(String postalcode) {

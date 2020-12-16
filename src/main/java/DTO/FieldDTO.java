@@ -1,12 +1,18 @@
 package DTO;
 
 public class FieldDTO {
+	private int ID;
 	private String sport;
 	private int Capacity;
 
-	public FieldDTO(String sport, int capacity) {
+	public FieldDTO(int ID, String sport, int capacity) {
+		this.ID = ID;
 		this.sport = sport;
 		Capacity = capacity;
+	}
+
+	public int getID() {
+		return ID;
 	}
 
 	public String getSport() {
@@ -15,6 +21,10 @@ public class FieldDTO {
 
 	public int getCapacity() {
 		return Capacity;
+	}
+
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 
 	public void setSport(String sport) {

@@ -4,23 +4,25 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 public class UserDTO {
-	private String name; //sporter
-	private String lastname; //sporter
-	private String mail; //sporter
-	private SimpleDateFormat dateOfBirth; //sporter
-	private String postalcode; //locatie
-	private int houseNumber; //locatie
-	private String streetName; //locatie
+	private int ID;
+	private String name;
+	private String lastname;
+	private String email;
+	private Date DateOfBirth;
+	//private String password; //ik weet niet of dit handig is om mee te geven
+	private int adres;
 
-	public UserDTO(String name, String lastname, String mail, SimpleDateFormat dateOfBirth,
-				   String postalcode, int houseNumber, String streetName) {
+	public UserDTO(int ID, String name, String lastname, String email, Date dateOfBirth, int adres) {
+		this.ID = ID;
 		this.name = name;
 		this.lastname = lastname;
-		this.mail = mail;
-		this.dateOfBirth = dateOfBirth;
-		this.postalcode = postalcode;
-		this.houseNumber = houseNumber;
-		this.streetName = streetName;
+		this.email = email;
+		DateOfBirth = dateOfBirth;
+		this.adres = adres;
+	}
+
+	public int getID() {
+		return ID;
 	}
 
 	public String getName() {
@@ -31,24 +33,20 @@ public class UserDTO {
 		return lastname;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getEmail() {
+		return email;
 	}
 
-	public SimpleDateFormat getDateOfBirth() {
-		return dateOfBirth;
+	public Date getDateOfBirth() {
+		return DateOfBirth;
 	}
 
-	public String getPostalcode() {
-		return postalcode;
+	public int getAdres() {
+		return adres;
 	}
 
-	public int getHouseNumber() {
-		return houseNumber;
-	}
-
-	public String getStreetName() {
-		return streetName;
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 
 	public void setName(String name) {
@@ -59,23 +57,15 @@ public class UserDTO {
 		this.lastname = lastname;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setDateOfBirth(SimpleDateFormat dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(Date dateOfBirth) {
+		DateOfBirth = dateOfBirth;
 	}
 
-	public void setPostalcode(String postalcode) {
-		this.postalcode = postalcode;
-	}
-
-	public void setHouseNumber(int houseNumber) {
-		this.houseNumber = houseNumber;
-	}
-
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setAdres(int adres) {
+		this.adres = adres;
 	}
 }

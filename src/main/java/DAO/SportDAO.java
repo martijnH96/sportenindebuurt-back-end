@@ -10,9 +10,11 @@ public interface SportDAO {
 	public SportDTO selectId(int id);
 
 	//select on category
-	public SportDTO[] selectWhere()
+	public SportDTO[] selectWhere(String[] statements, String[] variables);
 
 	//insert
+	public void newSport(); //zelfde probleem als met sportingground
 
 	//update
+	public void update(String[] tables, String[] values);
 }

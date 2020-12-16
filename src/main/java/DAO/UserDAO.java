@@ -19,5 +19,5 @@ public interface UserDAO {
 	public void updateAdres(String postcode, String street, int housenumber);
 
 	//insert new user
-	public void newUser(String name, )
+	public void newUser(String name, String lastname, String mail, String DOB, int adres);
 }

@@ -35,7 +35,7 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public void insert() {
-
+	public void insert(int sportingGround, String sport) {
+		
 	}
 }

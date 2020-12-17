@@ -18,5 +18,5 @@ public interface EventDAO {
 	public void update(String[] tables, String[] values);
 
 	//insert
-	public void insert(String sport, int field, int creator, Date date)
+	public void insert(String sport, int field, int creator, Date date);
 }

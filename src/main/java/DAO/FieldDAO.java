@@ -16,5 +16,5 @@ public interface FieldDAO {
 	public void update(String[] tables, String[] values);
 
 	//insert
-	public void insert();//nog steeds kut t-mobile
+	public void insert(int sportingGround, String sport);//nog steeds kut t-mobile
 }

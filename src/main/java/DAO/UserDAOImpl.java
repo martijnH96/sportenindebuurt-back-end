@@ -117,12 +117,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public void updateUser(String[] tables, String[] newValues, int id) {
-
-	}
-
-	@Override
-	public void updateAdres(String postcode, String street, int housenumber) {
-
+		//we gaan zo meteen verder ff een gesprek met Uwe
 	}
 
 	@Override

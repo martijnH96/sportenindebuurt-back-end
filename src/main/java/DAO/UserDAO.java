@@ -17,9 +17,6 @@ public interface UserDAO {
 	//update user
 	public void updateUser(String[] tables, String[] newValues, int id);
 
-	//update user addres
-	public void updateAdres(String postcode, String street, int housenumber);
-
 	//insert new user
 	public void newUser(String name, String lastname, String mail, String DOB, int adres);
 }

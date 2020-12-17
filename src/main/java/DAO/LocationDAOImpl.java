@@ -38,9 +38,7 @@ public class LocationDAOImpl implements LocationDAO{
 
 		String table = "Sporter";
 		String columns = "";
-		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
-				user.getPassword(), user.getAdres() + ""};
-		String[] where = {"id = ", "" + user.getID()};
+		String[] dataValues = {location.getPostalcode(), location.getHousenumber() + "", location.getStreetname() + ""};
 
 		data.insert(table, columns, dataValues, conn);
 

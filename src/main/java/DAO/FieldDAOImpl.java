@@ -100,8 +100,17 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public void update(FieldDTO field) {
+	public void update(FieldDTO field) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Sporter";
+		String[] columns = {"SportGelegenheid_GelegenheidId", "Sport_naam"};
+		String[] dataValues = {field.getGround() + "", field.getSport()};
+		String[] where = {"veldId = ", "" + field.getID()};
+
+		data.update(table, columns, dataValues, where, conn);
+
+		data.closeConnection(conn);
 	}
 
 	@Override

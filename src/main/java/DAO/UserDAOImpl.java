@@ -34,12 +34,19 @@ public class UserDAOImpl implements UserDAO{
 			var DOB = rows.getDate(3);
 			var lastname = rows.getString(4);
 			var email = rows.getString(5);
+			var pass = rows.getString(6);
 			var adres = rows.getInt(7);
+
+			UserDTO tempuser = new UserDTO(id, name, lastname, email, DOB, pass, adres);
+
+			users.add(tempuser);
 		}
 
 		data.closeConnection(conn);
 
-		return new UserDTO[0];
+		UserDTO[] returnValues = users.toArray(new UserDTO[users.size()]);
+
+		return returnValues;
 	}
 
 	@Override

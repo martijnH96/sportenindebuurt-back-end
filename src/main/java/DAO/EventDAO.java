@@ -2,6 +2,8 @@ package DAO;
 
 import DTO.EventDTO;
 
+import java.sql.Date;
+
 public interface EventDAO {
 	//select all
 	public EventDTO[] selectAll();
@@ -16,5 +18,5 @@ public interface EventDAO {
 	public void update(String[] tables, String[] values);
 
 	//insert
-	public void insert(); //kut t-mobile
+	public void insert(String sport, int field, int creator, Date date)
 }

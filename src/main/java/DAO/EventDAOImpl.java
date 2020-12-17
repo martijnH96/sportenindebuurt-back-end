@@ -3,6 +3,7 @@ package DAO;
 import DTO.EventDTO;
 import Database.Database;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class EventDAOImpl implements EventDAO{
@@ -35,7 +36,7 @@ public class EventDAOImpl implements EventDAO{
 	}
 
 	@Override
-	public void insert() {
+	public void insert(String sport, int field, int creator, Date date) {
 
 	}
 }

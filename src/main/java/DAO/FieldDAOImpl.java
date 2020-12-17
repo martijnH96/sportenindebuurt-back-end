@@ -1,8 +1,12 @@
 package DAO;
 
 import DTO.FieldDTO;
+import DTO.UserDTO;
 import Database.Database;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class FieldDAOImpl implements FieldDAO{
@@ -15,8 +19,31 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public FieldDTO[] selectAll() {
-		return new FieldDTO[0];
+	public FieldDTO[] selectAll() throws SQLException {
+		Connection conn = data.verbind();
+
+		ArrayList<FieldDTO> users = new ArrayList<>();
+		ResultSet rows;
+		String table = "Veld";
+		String columns = "*";
+
+		rows = data.select(table, columns, new String[0], new String[0], conn);
+
+		while (rows.next()){
+			var gelegenheid = rows.getInt(1);
+			var sport = rows.getString(2);
+			var veldId = rows.getInt(7);
+
+			FieldDTO tempField = new FieldDTO(gelegenheid, sport, veldId);
+
+			users.add(tempField);
+		}
+
+		data.closeConnection(conn);
+
+		FieldDTO[] returnValues = users.toArray(new FieldDTO[users.size()]);
+
+		return returnValues;
 	}
 
 	@Override
@@ -25,8 +52,31 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public FieldDTO[] selectWhere(String[] statements, String[] values) {
-		return new FieldDTO[0];
+	public FieldDTO[] selectWhere(String[] statements, String[] values) throws SQLException {
+		Connection conn = data.verbind();
+
+		ArrayList<FieldDTO> users = new ArrayList<>();
+		ResultSet rows;
+		String table = "Veld";
+		String columns = "*";
+
+		rows = data.select(table, columns, statements, values, conn);
+
+		while (rows.next()){
+			var gelegenheid = rows.getInt(1);
+			var sport = rows.getString(2);
+			var veldId = rows.getInt(7);
+
+			FieldDTO tempField = new FieldDTO(gelegenheid, sport, veldId);
+
+			users.add(tempField);
+		}
+
+		data.closeConnection(conn);
+
+		FieldDTO[] returnValues = users.toArray(new FieldDTO[users.size()]);
+
+		return returnValues;
 	}
 
 	@Override

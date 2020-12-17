@@ -3,12 +3,12 @@ package DTO;
 public class FieldDTO {
 	private int ID;
 	private String sport;
-	private int Capacity;
+	private int ground;
 
-	public FieldDTO(int ID, String sport, int capacity) {
+	public FieldDTO(int ID, String sport, int ground) {
 		this.ID = ID;
 		this.sport = sport;
-		Capacity = capacity;
+		this.ground = ground;
 	}
 
 	public int getID() {
@@ -19,8 +19,8 @@ public class FieldDTO {
 		return sport;
 	}
 
-	public int getCapacity() {
-		return Capacity;
+	public int getGround() {
+		return ground;
 	}
 
 	public void setID(int ID) {
@@ -31,7 +31,7 @@ public class FieldDTO {
 		this.sport = sport;
 	}
 
-	public void setCapacity(int capacity) {
-		Capacity = capacity;
+	public void setGround(int capacity) {
+		this.ground = ground;
 	}
 }

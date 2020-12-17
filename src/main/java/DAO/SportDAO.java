@@ -13,8 +13,8 @@ public interface SportDAO {
 	public SportDTO[] selectWhere(String[] statements, String[] variables);
 
 	//insert
-	public void newSport(); //zelfde probleem als met sportingground
+	public void newSport(SportDTO sport); //zelfde probleem als met sportingground
 
 	//update
-	public void update(String[] tables, String[] values);
+	public void update(SportDTO sport);
 }

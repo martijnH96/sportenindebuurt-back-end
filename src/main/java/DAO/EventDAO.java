@@ -15,8 +15,8 @@ public interface EventDAO {
 	public EventDTO[] selectWhere(String[] statements, String[] values);
 
 	//update
-	public void update(String[] tables, String[] values);
+	public void update(EventDTO event);
 
 	//insert
-	public void insert(String sport, int field, int creator, Date date);
+	public void insert(EventDTO event);
 }

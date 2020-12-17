@@ -30,12 +30,12 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public void update(String[] tables, String[] values) {
+	public void update(FieldDTO field) {
 
 	}
 
 	@Override
-	public void insert(int sportingGround, String sport) {
-		
+	public void insert(FieldDTO field) {
+
 	}
 }

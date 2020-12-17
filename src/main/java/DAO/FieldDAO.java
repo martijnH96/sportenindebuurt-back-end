@@ -13,8 +13,8 @@ public interface FieldDAO {
 	public FieldDTO[] selectWhere (String[] statements, String[] values);
 
 	//update
-	public void update(String[] tables, String[] values);
+	public void update(FieldDTO field);
 
 	//insert
-	public void insert(int sportingGround, String sport);//nog steeds kut t-mobile
+	public void insert(FieldDTO field);//nog steeds kut t-mobile
 }

@@ -9,10 +9,10 @@ public interface SportingGroundDAO {
 	public SportingGroundDTO[] selectAll() throws SQLException;
 
 	//select specific
-	public SportingGroundDTO selectID(int id);
+	public SportingGroundDTO selectID(int id) throws SQLException;
 
 	//select on category
-	public SportingGroundDTO[] selectWhere(String[] statements, String[] variables);
+	public SportingGroundDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//update
 	public void update(SportingGroundDTO sportingGround);

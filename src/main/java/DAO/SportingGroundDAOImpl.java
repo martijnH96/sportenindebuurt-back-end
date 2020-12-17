@@ -30,7 +30,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	}
 
 	@Override
-	public void newSportingGround() {
+	public void newSportingGround(String name, int capacity, int adres) {
 
 	}
 }

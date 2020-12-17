@@ -16,7 +16,7 @@ public interface SportingGroundDAO {
 	public void update(String[] tables, String[] values);
 
 	//insert new
-	public void newSportingGround();
+	public void newSportingGround(String name, int capacity, int adres);
 	//dit moet nog worden aangepast maar kan nu niets ccontroleren
 	//omdat t-mobile er weer uitligt
 }

@@ -50,8 +50,37 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public UserDTO selectId(int id) {
-		return null;
+	public UserDTO selectId(int id) throws SQLException {
+		Connection conn = data.verbind();
+
+		UserDTO user = null;
+		ResultSet rows;
+		String table = "Sporter";
+		String columns = "*";
+		String[] where = {"id = "};
+		String[] idValues = {"" + id};
+
+		rows = data.select(table, columns, where, idValues, conn);
+
+		while (rows.next()){
+			//var id = rows.getInt(1);
+			var name = rows.getString(2);
+			var DOB = rows.getDate(3);
+			var lastname = rows.getString(4);
+			var email = rows.getString(5);
+			var pass = rows.getString(6);
+			var adres = rows.getInt(7);
+
+			user = new UserDTO(id, name, lastname, email, DOB, pass, adres);
+		}
+
+		data.closeConnection(conn);
+
+		if(user == null) {
+			return user;
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -63,7 +92,7 @@ public class UserDAOImpl implements UserDAO{
 		String table = "Sporter";
 		String columns = "*";
 
-		rows = data.select(table, columns, null, null, conn);
+		rows = data.select(table, columns, statements, variables, conn);
 
 		while (rows.next()){
 			var id = rows.getInt(1);

@@ -9,12 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO{
-	private ArrayList<UserDTO> users;
-	private Database data;
+	//private ArrayList<UserDTO> users;
+	private Database data = new Database();
 
 	public UserDAOImpl() {
-		this.users = new ArrayList<>();
-		this.data = new Database();
 	}
 
 	@Override

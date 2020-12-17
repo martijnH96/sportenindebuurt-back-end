@@ -24,7 +24,7 @@ public class SportDAOImpl implements SportDAO{
 
 		ArrayList<SportDTO> users = new ArrayList<>();
 		ResultSet rows;
-		String table = "Locatie";
+		String table = "Sport";
 		String columns = "*";
 
 		rows = data.select(table, columns, new String[0], new String[0], conn);
@@ -53,7 +53,7 @@ public class SportDAOImpl implements SportDAO{
 
 		SportDTO sport = null;
 		ResultSet rows;
-		String table = "Locatie";
+		String table = "Sport";
 		String columns = "*";
 
 		rows = data.select(table, columns, new String[0], new String[0], conn);
@@ -78,7 +78,7 @@ public class SportDAOImpl implements SportDAO{
 
 		ArrayList<SportDTO> users = new ArrayList<>();
 		ResultSet rows;
-		String table = "Locatie";
+		String table = "Sport";
 		String columns = "*";
 
 		rows = data.select(table, columns, statements, variables, conn);
@@ -102,12 +102,29 @@ public class SportDAOImpl implements SportDAO{
 	}
 
 	@Override
-	public void newSport() throws SQLException {
+	public void update(SportDTO sport) throws SQLException{
+		Connection conn = data.verbind();
 
+		String table = "SportGelegenheid";
+		String[] columns = {"naam", "isTeamSport", "minSpelers", "maxSpelers"};
+		String[] dataValues = {sport.getName(), sport.isTeamSport() + "", "" + sport.getMinPlayers(), "" + sport.getMaxPlayers()};
+		String[] where = {"naam = ", sport.getName()};
+
+		data.update(table, columns, dataValues, where, conn);
+
+		data.closeConnection(conn);
 	}
 
 	@Override
-	public void update(String[] tables, String[] values) throws SQLException{
+	public void newSport(SportDTO sport) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Sport";
+		String columns = "";
+		String[] dataValues = {sport.getName(), sport.isTeamSport() + "", sport.getMinPlayers() + "", "" + sport.getMaxPlayers()};
+
+		data.insert(table, columns, dataValues, conn);
+
+		data.closeConnection(conn);
 	}
 }

@@ -3,6 +3,7 @@ package DAO;
 import DTO.SportingGroundDTO;
 import Database.Database;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SportingGroundDAOImpl implements SportingGroundDAO{
@@ -25,12 +26,12 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	}
 
 	@Override
-	public void update(String[] tables, String[] values) {
+	public void update(SportingGroundDTO sportingGround) {
 
 	}
 
 	@Override
-	public void newSportingGround(String name, int capacity, int adres) {
+	public void newSportingGround(SportingGroundDTO sportingGround) {
 
 	}
 }

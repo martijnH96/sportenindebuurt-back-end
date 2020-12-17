@@ -46,12 +46,58 @@ public class LocationDAOImpl implements LocationDAO{
 
 	@Override
 	public LocationDTO selectId(int id) throws SQLException {
-		return null;
+		Connection conn = data.verbind();
+
+		LocationDTO location = null;
+		ResultSet rows;
+		String table = "Locatie";
+		String columns = "*";
+		String[] where = {"adresNr = "};
+		String[] value = {"1"};
+
+		rows = data.select(table, columns, where, value, conn);
+
+		while (rows.next()){
+			var idValue = rows.getInt(1);
+			var postal = rows.getString(2);
+			var housenumber = rows.getInt(3);
+			var streetname = rows.getString(4);
+
+			location = new LocationDTO(idValue, postal, housenumber, streetname);
+		}
+
+		data.closeConnection(conn);
+
+		return location;
 	}
 
 	@Override
 	public LocationDTO[] selectWhere(String[] statements, String[] variables) throws SQLException {
-		return new LocationDTO[0];
+		Connection conn = data.verbind();
+
+		ArrayList<LocationDTO> users = new ArrayList<>();
+		ResultSet rows;
+		String table = "Locatie";
+		String columns = "*";
+
+		rows = data.select(table, columns, statements, variables, conn);
+
+		while (rows.next()){
+			var id = rows.getInt(1);
+			var postal = rows.getString(2);
+			var housenumber = rows.getInt(3);
+			var streetname = rows.getString(4);
+
+			LocationDTO templocation = new LocationDTO(id, postal, housenumber, streetname);
+
+			users.add(templocation);
+		}
+
+		data.closeConnection(conn);
+
+		LocationDTO[] returnValues = users.toArray(new LocationDTO[users.size()]);
+
+		return returnValues;
 	}
 
 	@Override

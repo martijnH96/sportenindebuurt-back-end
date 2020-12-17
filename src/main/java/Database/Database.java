@@ -115,6 +115,10 @@ public class Database implements verbinding{
 			}
 		}
 
+		if(where.length != 0){
+			sql.concat(" WHERE " + where[0]);
+		}
+
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1,"tennis");
 		stmt.setInt(2, 2);
@@ -122,6 +126,10 @@ public class Database implements verbinding{
 
 		for (int i = 0; i < data.length; i++){
 			stmt.setString(i + 1, data[i]);
+		}
+
+		if(where.length != 0){
+			stmt.setString(data.length, where[1]);
 		}
 
 		int i = stmt.executeUpdate();

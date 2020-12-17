@@ -120,6 +120,8 @@ public class UserDAOImpl implements UserDAO{
 		Connection conn = data.verbind();
 
 		String table = "Sporter";
+		String[] tables = {"naam", "DateOdBirth", "achternaam", "email", "wachtwoord", "Locatie_adresNr"};
+
 
 		data.closeConnection(conn);
 	}

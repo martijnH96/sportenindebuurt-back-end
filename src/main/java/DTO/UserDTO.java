@@ -9,15 +9,16 @@ public class UserDTO {
 	private String lastname;
 	private String email;
 	private Date DateOfBirth;
-	//private String password; //ik weet niet of dit handig is om mee te geven
+	private String password; //ik weet niet of dit handig is om mee te geven
 	private int adres;
 
-	public UserDTO(int ID, String name, String lastname, String email, Date dateOfBirth, int adres) {
+	public UserDTO(int ID, String name, String lastname, String email, Date dateOfBirth, String password, int adres) {
 		this.ID = ID;
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
 		DateOfBirth = dateOfBirth;
+		this.password = password;
 		this.adres = adres;
 	}
 
@@ -39,6 +40,10 @@ public class UserDTO {
 
 	public Date getDateOfBirth() {
 		return DateOfBirth;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public int getAdres() {
@@ -63,6 +68,10 @@ public class UserDTO {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		DateOfBirth = dateOfBirth;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setAdres(int adres) {

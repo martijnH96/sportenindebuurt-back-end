@@ -2,9 +2,11 @@ package DAO;
 
 import DTO.UserDTO;
 
+import java.sql.SQLException;
+
 public interface UserDAO {
 	//select all users
-	public UserDTO[] selectAll();
+	public UserDTO[] selectAll() throws SQLException;
 
 	//select singular user (id)
 	public UserDTO selectId(int id);

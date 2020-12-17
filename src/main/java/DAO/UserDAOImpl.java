@@ -116,12 +116,16 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public void updateUser(String[] tables, String[] newValues, int id) {
-		//we gaan zo meteen verder ff een gesprek met Uwe
+	public void updateUser(UserDTO user) throws SQLException {
+		Connection conn = data.verbind();
+
+		String table = "Sporter";
+
+		data.closeConnection(conn);
 	}
 
 	@Override
-	public void newUser(String name, String lastname, String mail, String DOB, int adres) {
+	public void newUser(UserDTO user) {
 
 	}
 }

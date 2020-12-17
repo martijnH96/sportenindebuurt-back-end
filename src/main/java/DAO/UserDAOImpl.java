@@ -74,11 +74,7 @@ public class UserDAOImpl implements UserDAO{
 
 		data.closeConnection(conn);
 
-		if(user == null) {
-			return user;
-		} else {
-			return null;
-		}
+		return user;
 	}
 
 	@Override

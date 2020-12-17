@@ -48,29 +48,28 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	public SportingGroundDTO selectID(int id) throws SQLException {
 		Connection conn = data.verbind();
 
-		ArrayList<SportingGroundDTO> results = new ArrayList<>();
+		SportingGroundDTO results = null;
 		ResultSet rows;
 		String table = "SportGelegenheid";
 		String columns = "*";
+		String[] whereStat = {"GelegenheidId = "};
+		String[] whereValues = {"" + id};
 
-		rows = data.select(table, columns, new String[0], new String[0], conn);
+		rows = data.select(table, columns, whereStat, whereValues, conn);
 
 		while (rows.next()){
-			var id = rows.getInt(1);
+			//var id = rows.getInt(1);
 			var name = rows.getString(2);
 			var capacity = rows.getInt(3);
 			var adres = rows.getInt(4);
 
-			SportingGroundDTO tempRow = new SportingGroundDTO(id, name, adres);
+			results = new SportingGroundDTO(id, name, adres);
 
-			results.add(tempRow);
 		}
 
 		data.closeConnection(conn);
 
-		SportingGroundDTO[] grounds = results.toArray(new SportingGroundDTO[results.size()]);
-
-		return grounds;
+		return results;
 	}
 
 	@Override
@@ -82,7 +81,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 		String table = "SportGelegenheid";
 		String columns = "*";
 
-		rows = data.select(table, columns, new String[0], new String[0], conn);
+		rows = data.select(table, columns, statements, variables, conn);
 
 		while (rows.next()){
 			var id = rows.getInt(1);

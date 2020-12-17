@@ -41,21 +41,21 @@ public class Database implements verbinding{
 		conn.close();
 	}
 
-	public ResultSet select(String table, String columns, String[] where, Connection conn) throws SQLException {
+	public ResultSet select(String table, String columns, String[] whereStat, String[] whereValues, Connection conn) throws SQLException {
 		//conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql = "SELECT " + columns + " FROM " + table;
 
-		if(where.length != 0){
-			sql.concat(" WHERE " + where[0]);
+		if(whereStat.length != 0){
+			sql.concat(" WHERE " + whereStat[0] + "?");
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 
-		if(where.length != 0) {
+		if(whereValues.length != 0) {
 
-			for (int i = 1; i < where.length; i++){
-				stmt.setString(i, where[i]);
+			for (int i = 1; i < whereValues.length; i++){
+				stmt.setString(i, whereValues[i]);
 			}
 			//stmt.setString(1, "*");
 			//stmt.setString(1, "Sport");

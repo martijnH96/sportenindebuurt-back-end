@@ -12,7 +12,7 @@ public interface UserDAO {
 	public UserDTO selectId(int id);
 
 	//select user using where
-	public UserDTO[] selectWhere(String[] statements, String[] variables);
+	public UserDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//update user
 	public void updateUser(String[] tables, String[] newValues, int id);

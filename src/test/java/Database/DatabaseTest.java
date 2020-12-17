@@ -46,14 +46,14 @@ public class DatabaseTest {
 		//arrange
 		String test = "test";
 		String columns = "*";
-		String[] where = new String[0];
+		//String[] where = new String[0];
 		ResultSet result = null;
 		var lines = 0;
 
 		//act
 		//voer query uit en krij resultaat
 		try {
-			result = testDB.select(test, columns, where, conn);
+			result = testDB.select(test, columns, null, null, conn);
 
 			while (!result.next()) {
 				lines++;

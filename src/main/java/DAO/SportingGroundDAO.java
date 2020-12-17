@@ -15,10 +15,10 @@ public interface SportingGroundDAO {
 	public SportingGroundDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//update
-	public void update(SportingGroundDTO sportingGround);
+	public void update(SportingGroundDTO sportingGround) throws SQLException;
 
 	//insert new
-	public void insert(SportingGroundDTO sportingGround);
+	public void insert(SportingGroundDTO sportingGround) throws SQLException;
 	//dit moet nog worden aangepast maar kan nu niets ccontroleren
 	//omdat t-mobile er weer uitligt
 }

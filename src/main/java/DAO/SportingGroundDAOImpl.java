@@ -102,12 +102,20 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	}
 
 	@Override
-	public void update(SportingGroundDTO sportingGround) {
+	public void update(SportingGroundDTO sportingGround) throws SQLException {
+		Connection conn = data.verbind();
 
+		//hier komt de rest dan
+
+		data.closeConnection(conn);
 	}
 
 	@Override
-	public void insert(SportingGroundDTO sportingGround) {
+	public void insert(SportingGroundDTO sportingGround) throws SQLException {
+		Connection conn = data.verbind();
 
+		//hier komt de rest dan
+
+		data.closeConnection(conn);
 	}
 }

@@ -103,7 +103,7 @@ public class FieldDAOImpl implements FieldDAO{
 	public void update(FieldDTO field) throws SQLException {
 		Connection conn = data.verbind();
 
-		String table = "Sporter";
+		String table = "Veld";
 		String[] columns = {"SportGelegenheid_GelegenheidId", "Sport_naam"};
 		String[] dataValues = {field.getGround() + "", field.getSport()};
 		String[] where = {"veldId = ", "" + field.getID()};
@@ -114,7 +114,15 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public void insert(FieldDTO field) {
+	public void insert(FieldDTO field) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Veld";
+		String columns = "";
+		String[] dataValues = {field.getGround() + "", field.getSport()};
+
+		data.insert(table, columns, dataValues, conn);
+
+		data.closeConnection(conn);
 	}
 }

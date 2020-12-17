@@ -1,7 +1,5 @@
 package Controllers;
-
-import Services.SportService;
-
+import Services.TimeFrameService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,15 +10,15 @@ import javax.ws.rs.core.Response;
 @Path("/")
 public class TimeFrameController {
 
-    private SportService sportService;
+    private TimeFrameService timeFrameService;
 
     @Inject
-    private void setSportService(SportService sportService){this.sportService = sportService;}
+    private void setTimeService(TimeFrameService timeFrameService){this.timeFrameService = timeFrameService;}
 
     @GET
     @Path("/sports")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getSports(){
-        return Response.status(200).entity(sportService.getSports()).build();
+    public Response getTimes(){
+        return null;
     }
 }

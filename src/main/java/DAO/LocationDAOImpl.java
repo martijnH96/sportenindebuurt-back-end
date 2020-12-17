@@ -29,7 +29,17 @@ public class LocationDAOImpl implements LocationDAO{
 
 	@Override
 	public void update(LocationDTO location) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Sporter";
+		String[] columns = {"naam", "DateOdBirth", "achternaam", "email", "wachtwoord", "Locatie_adresNr"};
+		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
+				user.getPassword(), user.getAdres() + ""};
+		String[] where = {"id = ", "" + user.getID()};
+
+		data.update(table, columns, dataValues, where, conn);
+
+		data.closeConnection(conn);
 	}
 
 	@Override

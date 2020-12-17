@@ -131,7 +131,17 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public void newUser(UserDTO user) {
+	public void newUser(UserDTO user) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Sporter";
+		String columns = "";
+		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
+				user.getPassword(), user.getAdres() + ""};
+		String[] where = {"id = ", "" + user.getID()};
+
+		data.insert(table, columns, dataValues, conn);
+
+		data.closeConnection(conn);
 	}
 }

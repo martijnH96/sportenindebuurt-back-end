@@ -2,19 +2,21 @@ package DAO;
 
 import DTO.FieldDTO;
 
+import java.sql.SQLException;
+
 public interface FieldDAO {
 	//select all
-	public FieldDTO[] selectAll();
+	public FieldDTO[] selectAll() throws SQLException;
 
 	//select specific
-	public FieldDTO selectId(int id);
+	public FieldDTO selectId(int id) throws SQLException;
 
 	//select on category
-	public FieldDTO[] selectWhere (String[] statements, String[] values);
+	public FieldDTO[] selectWhere (String[] statements, String[] values) throws SQLException;
 
 	//update
-	public void update(FieldDTO field);
+	public void update(FieldDTO field) throws SQLException;
 
 	//insert
-	public void insert(FieldDTO field);//nog steeds kut t-mobile
+	public void insert(FieldDTO field) throws SQLException;
 }

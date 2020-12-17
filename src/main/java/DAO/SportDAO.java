@@ -2,19 +2,21 @@ package DAO;
 
 import DTO.SportDTO;
 
+import java.sql.SQLException;
+
 public interface SportDAO {
 	//select all
-	public SportDTO[] selectAll();
+	public SportDTO[] selectAll() throws SQLException;
 
 	//select specific
-	public SportDTO selectId(int id);
+	public SportDTO selectId(int id) throws SQLException;
 
 	//select on category
-	public SportDTO[] selectWhere(String[] statements, String[] variables);
+	public SportDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//insert
-	public void newSport(SportDTO sport); //zelfde probleem als met sportingground
+	public void newSport(SportDTO sport) throws SQLException; //zelfde probleem als met sportingground
 
 	//update
-	public void update(SportDTO sport);
+	public void update(SportDTO sport) throws SQLException;
 }

@@ -4,9 +4,9 @@ public class LocationDTO {
 	private int id;
 	private String postalcode;
 	private int housenumber;
-	private int streetname;
+	private String streetname;
 
-	public LocationDTO(int id, String postalcode, int housenumber, int streetname) {
+	public LocationDTO(int id, String postalcode, int housenumber, String streetname) {
 		this.id = id;
 		this.postalcode = postalcode;
 		this.housenumber = housenumber;
@@ -25,7 +25,7 @@ public class LocationDTO {
 		return housenumber;
 	}
 
-	public int getStreetname() {
+	public String getStreetname() {
 		return streetname;
 	}
 
@@ -41,7 +41,7 @@ public class LocationDTO {
 		this.housenumber = housenumber;
 	}
 
-	public void setStreetname(int streetname) {
+	public void setStreetname(String streetname) {
 		this.streetname = streetname;
 	}
 }

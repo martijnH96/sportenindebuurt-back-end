@@ -32,10 +32,9 @@ public class LocationDAOImpl implements LocationDAO{
 		Connection conn = data.verbind();
 
 		String table = "Sporter";
-		String[] columns = {"naam", "DateOdBirth", "achternaam", "email", "wachtwoord", "Locatie_adresNr"};
-		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
-				user.getPassword(), user.getAdres() + ""};
-		String[] where = {"id = ", "" + user.getID()};
+		String[] columns = {"postcode", "huisnummer", "straatnaame"};
+		String[] dataValues = {location.getPostalcode(), location.getHousenumber() + "", location.getStreetname()};
+		String[] where = {"id = ", "" + location.getId()};
 
 		data.update(table, columns, dataValues, where, conn);
 

@@ -25,7 +25,7 @@ public class LoginController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(UserDTO userDTO) {
         loginService = new LoginService();
-        boolean loggedin = loginService.login(userDTO.getName(), userDTO.getPassword());
+        boolean loggedin = loginService.login(userDTO.getEmail(), userDTO.getPassword());
 //        TokenDTO token = loginService.login(jsonObject.getString("user"), jsonObject.getString("password"));
         if (loggedin) {//HEEFT MIJ 4 DAGEN GEDUURT VOORDAT IK DOOR HAD "OH JE MOET 'USER' DOEN IPV 'USERNAME'"
 //            tokenDAO.setTokenToUser(jsonObject.getString("user"), token.getToken());

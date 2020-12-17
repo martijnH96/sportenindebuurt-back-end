@@ -1,10 +1,13 @@
 package DAO;
 
 import DTO.LocationDTO;
+
 import Database.Database;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class LocationDAOImpl implements LocationDAO{
 	Database data = new Database();
@@ -14,7 +17,31 @@ public class LocationDAOImpl implements LocationDAO{
 
 	@Override
 	public LocationDTO[] selectAll() throws SQLException {
-		return new LocationDTO[0];
+		Connection conn = data.verbind();
+
+		ArrayList<LocationDTO> users = new ArrayList<>();
+		ResultSet rows;
+		String table = "Locatie";
+		String columns = "*";
+
+		rows = data.select(table, columns, new String[0], new String[0], conn);
+
+		while (rows.next()){
+			var id = rows.getInt(1);
+			var postal = rows.getString(2);
+			var housenumber = rows.getInt(3);
+			var streetname = rows.getString(4);
+
+			LocationDTO templocation = new LocationDTO(id, postal, housenumber, streetname);
+
+			users.add(templocation);
+		}
+
+		data.closeConnection(conn);
+
+		LocationDTO[] returnValues = users.toArray(new LocationDTO[users.size()]);
+
+		return returnValues;
 	}
 
 	@Override

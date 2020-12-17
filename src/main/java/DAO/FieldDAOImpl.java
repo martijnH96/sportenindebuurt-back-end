@@ -47,8 +47,28 @@ public class FieldDAOImpl implements FieldDAO{
 	}
 
 	@Override
-	public FieldDTO selectId(int id) {
-		return null;
+	public FieldDTO selectId(int id) throws SQLException {
+		Connection conn = data.verbind();
+
+		FieldDTO field = null;
+		ResultSet rows;
+		String table = "Veld";
+		String columns = "*";
+		String[] where = {"VeldId = ", id + ""};
+
+		rows = data.select(table, columns, new String[0], new String[0], conn);
+
+		while (rows.next()){
+			var gelegenheid = rows.getInt(1);
+			var sport = rows.getString(2);
+			var veldId = rows.getInt(7);
+
+			field = new FieldDTO(gelegenheid, sport, veldId);
+		}
+
+		data.closeConnection(conn);
+
+		return field;
 	}
 
 	@Override

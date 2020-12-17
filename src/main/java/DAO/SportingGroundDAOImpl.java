@@ -31,7 +31,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	}
 
 	@Override
-	public void newSportingGround(SportingGroundDTO sportingGround) {
-
+	public void insert(SportingGroundDTO sportingGround) {
+		//komt straks wel
 	}
 }

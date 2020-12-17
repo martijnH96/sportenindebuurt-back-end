@@ -16,7 +16,7 @@ public interface SportingGroundDAO {
 	public void update(SportingGroundDTO sportingGround);
 
 	//insert new
-	public void newSportingGround(SportingGroundDTO sportingGround);
+	public void insert(SportingGroundDTO sportingGround);
 	//dit moet nog worden aangepast maar kan nu niets ccontroleren
 	//omdat t-mobile er weer uitligt
 }

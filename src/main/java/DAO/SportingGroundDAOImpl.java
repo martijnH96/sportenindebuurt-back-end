@@ -3,15 +3,23 @@ package DAO;
 import DTO.SportingGroundDTO;
 import Database.Database;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SportingGroundDAOImpl implements SportingGroundDAO{
-	private ArrayList<SportingGroundDTO> sportingGounds;
-	private Database data;
+	//private ArrayList<SportingGroundDTO> sportingGounds;
+	private Database data = new Database();
+
+	public SportingGroundDAOImpl() {
+	}
 
 	@Override
-	public SportingGroundDTO[] selectAll() {
+	public SportingGroundDTO[] selectAll() throws SQLException {
+		Connection conn = data.verbind();
+
+		data.closeConnection(conn);
+
 		return new SportingGroundDTO[0];
 	}
 
@@ -32,6 +40,6 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 
 	@Override
 	public void insert(SportingGroundDTO sportingGround) {
-		//komt straks wel
+
 	}
 }

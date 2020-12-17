@@ -2,9 +2,11 @@ package DAO;
 
 import DTO.SportingGroundDTO;
 
+import java.sql.SQLException;
+
 public interface SportingGroundDAO {
 	//select all
-	public SportingGroundDTO[] selectAll();
+	public SportingGroundDTO[] selectAll() throws SQLException;
 
 	//select specific
 	public SportingGroundDTO selectID(int id);

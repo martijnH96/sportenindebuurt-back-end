@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO{
 		String table = "Sporter";
 		String columns = "*";
 
-		rows = data.select(table, columns, null, null, conn);
+		rows = data.select(table, columns, new String[0], new String[0], conn);
 
 		while (rows.next()){
 			var id = rows.getInt(1);

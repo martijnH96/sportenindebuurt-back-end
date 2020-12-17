@@ -119,7 +119,12 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	public void insert(SportingGroundDTO sportingGround) throws SQLException {
 		Connection conn = data.verbind();
 
-		//hier komt de rest dan
+		String table = "Sporter";
+		String columns = "";
+		String[] dataValues = {sportingGround.getName(), "0", sportingGround.getAdres() + ""};
+		String[] where = {"id = ", "" + sportingGround.getID()};
+
+		data.insert(table, columns, dataValues, conn);
 
 		data.closeConnection(conn);
 	}

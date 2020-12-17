@@ -121,7 +121,9 @@ public class UserDAOImpl implements UserDAO{
 
 		String table = "Sporter";
 		String[] tables = {"naam", "DateOdBirth", "achternaam", "email", "wachtwoord", "Locatie_adresNr"};
-
+		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
+				user.getPassword(), user.getAdres() + ""};
+		String[] where = {"id = ", "" + user.getID()};
 
 		data.closeConnection(conn);
 	}

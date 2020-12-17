@@ -19,7 +19,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 	public SportingGroundDTO[] selectAll() throws SQLException {
 		Connection conn = data.verbind();
 
-		ArrayList<SportingGroundDTO> users = new ArrayList<>();
+		ArrayList<SportingGroundDTO> results = new ArrayList<>();
 		ResultSet rows;
 		String table = "SportGelegenheid";
 		String columns = "*";
@@ -34,12 +34,14 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 
 			SportingGroundDTO tempRow = new SportingGroundDTO(id, name, adres);
 
-			users.add(tempRow);
+			results.add(tempRow);
 		}
 
 		data.closeConnection(conn);
 
-		return new SportingGroundDTO[0];
+		SportingGroundDTO[] grounds = results.toArray(new SportingGroundDTO[results.size()]);
+
+		return grounds;
 	}
 
 	@Override

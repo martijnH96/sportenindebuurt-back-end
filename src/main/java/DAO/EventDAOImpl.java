@@ -55,7 +55,7 @@ public class EventDAOImpl implements EventDAO{
 
 		EventDTO event = null;
 		ResultSet rows;
-		String table = "Sporter";
+		String table = "Event";
 		String columns = "*";
 
 		rows = data.select(table, columns, new String[0], new String[0], conn);
@@ -106,12 +106,21 @@ public class EventDAOImpl implements EventDAO{
 	}
 
 	@Override
-	public void update(String[] tables, String[] values) throws SQLException {
+	public void update(EventDTO event) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Event";
+		String[] columns = {"Sport_naam", "Veld_veldId", "datum"};
+		String[] dataValues = {event.getSport(), event.getField() + "", event.getDate() + ""};
+		String[] where = {"id = ", "" + event.getId()};
+
+		data.update(table, columns, dataValues, where, conn);
+
+		data.closeConnection(conn);
 	}
 
 	@Override
-	public void insert(String sport, int field, int creator, Date date) throws SQLException {
+	public void insert(EventDTO event) throws SQLException {
 
 	}
 }

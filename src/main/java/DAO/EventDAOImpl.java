@@ -32,21 +32,19 @@ public class EventDAOImpl implements EventDAO{
 
 		while (rows.next()){
 			var id = rows.getInt(1);
-			var name = rows.getString(2);
-			var DOB = rows.getDate(3);
-			var lastname = rows.getString(4);
-			var email = rows.getString(5);
-			var pass = rows.getString(6);
-			var adres = rows.getInt(7);
+			var sport = rows.getString(2);
+			var field = rows.getInt(3);
+			var creator = rows.getInt(4);
+			var date = rows.getDate(5);
 
-			UserDTO tempuser = new UserDTO(id, name, lastname, email, DOB, pass, adres);
+			EventDTO tempEvent = new EventDTO(id, sport, field, date);
 
-			users.add(tempuser);
+			events.add(tempEvent);
 		}
 
 		data.closeConnection(conn);
 
-		UserDTO[] returnValues = users.toArray(new UserDTO[users.size()]);
+		EventDTO[] returnValues = events.toArray(new EventDTO[events.size()]);
 
 		return returnValues;
 	}

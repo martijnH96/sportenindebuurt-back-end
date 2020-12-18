@@ -77,7 +77,32 @@ public class EventDAOImpl implements EventDAO{
 
 	@Override
 	public EventDTO[] selectWhere(String[] statements, String[] values) throws SQLException {
-		return new EventDTO[0];
+		Connection conn = data.verbind();
+
+		ArrayList<EventDTO> events = new ArrayList<>();
+		ResultSet rows;
+		String table = "Event";
+		String columns = "*";
+
+		rows = data.select(table, columns, statements, values, conn);
+
+		while (rows.next()){
+			var id = rows.getInt(1);
+			var sport = rows.getString(2);
+			var field = rows.getInt(3);
+			var creator = rows.getInt(4);
+			var date = rows.getDate(5);
+
+			EventDTO tempEvent = new EventDTO(id, sport, field, date);
+
+			events.add(tempEvent);
+		}
+
+		data.closeConnection(conn);
+
+		EventDTO[] returnValues = events.toArray(new EventDTO[events.size()]);
+
+		return returnValues;
 	}
 
 	@Override

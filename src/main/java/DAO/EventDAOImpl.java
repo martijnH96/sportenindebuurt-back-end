@@ -37,7 +37,7 @@ public class EventDAOImpl implements EventDAO{
 			var creator = rows.getInt(4);
 			var date = rows.getDate(5);
 
-			EventDTO tempEvent = new EventDTO(id, sport, field, date);
+			EventDTO tempEvent = new EventDTO(id, sport, field, creator, date);
 
 			events.add(tempEvent);
 		}
@@ -67,7 +67,7 @@ public class EventDAOImpl implements EventDAO{
 			var creator = rows.getInt(4);
 			var date = rows.getDate(5);
 
-			event = new EventDTO(idValue, sport, field, date);
+			event = new EventDTO(idValue, sport, field, creator, date);
 		}
 
 		data.closeConnection(conn);
@@ -93,7 +93,7 @@ public class EventDAOImpl implements EventDAO{
 			var creator = rows.getInt(4);
 			var date = rows.getDate(5);
 
-			EventDTO tempEvent = new EventDTO(id, sport, field, date);
+			EventDTO tempEvent = new EventDTO(id, sport, field, creator, date);
 
 			events.add(tempEvent);
 		}
@@ -110,8 +110,8 @@ public class EventDAOImpl implements EventDAO{
 		Connection conn = data.verbind();
 
 		String table = "Event";
-		String[] columns = {"Sport_naam", "Veld_veldId", "datum"};
-		String[] dataValues = {event.getSport(), event.getField() + "", event.getDate() + ""};
+		String[] columns = {"Sport_naam", "Veld_veldId", "Sporter_SporterId", "datum"};
+		String[] dataValues = {event.getSport(), event.getField() + "", event.getCreator() + "", event.getDate() + ""};
 		String[] where = {"id = ", "" + event.getId()};
 
 		data.update(table, columns, dataValues, where, conn);
@@ -125,8 +125,7 @@ public class EventDAOImpl implements EventDAO{
 
 		String table = "Sporter";
 		String columns = "";
-		String[] dataValues = {event.getSport(), event.getField() + "", event};
-		String[] where = {"id = ", "" + user.getID()};
+		String[] dataValues = {event.getSport(), event.getField() + "", event.getCreator() + "", event.getDate() + ""};
 
 		data.insert(table, columns, dataValues, conn);
 

@@ -4,6 +4,7 @@ import DTO.EventDTO;
 import Database.Database;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EventDAOImpl implements EventDAO{
@@ -16,27 +17,27 @@ public class EventDAOImpl implements EventDAO{
 	}
 
 	@Override
-	public EventDTO[] selectAll() {
+	public EventDTO[] selectAll() throws SQLException {
 		return new EventDTO[0];
 	}
 
 	@Override
-	public EventDTO selectId(int id) {
+	public EventDTO selectId(int id) throws SQLException {
 		return null;
 	}
 
 	@Override
-	public EventDTO[] selectWhere(String[] statements, String[] values) {
+	public EventDTO[] selectWhere(String[] statements, String[] values) throws SQLException {
 		return new EventDTO[0];
 	}
 
 	@Override
-	public void update(String[] tables, String[] values) {
+	public void update(String[] tables, String[] values) throws SQLException {
 
 	}
 
 	@Override
-	public void insert(String sport, int field, int creator, Date date) {
+	public void insert(String sport, int field, int creator, Date date) throws SQLException {
 
 	}
 }

@@ -15,8 +15,8 @@ public interface UserDAO {
 	public UserDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//update user
-	public void updateUser(UserDTO user) throws SQLException;
+	public void update(UserDTO user) throws SQLException;
 
 	//insert new user
-	public void newUser(UserDTO user) throws SQLException;
+	public void insert(UserDTO user) throws SQLException;
 }

@@ -110,7 +110,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public void updateUser(UserDTO user) throws SQLException {
+	public void update(UserDTO user) throws SQLException {
 		Connection conn = data.verbind();
 
 		String table = "Sporter";
@@ -125,7 +125,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public void newUser(UserDTO user) throws SQLException {
+	public void insert(UserDTO user) throws SQLException {
 		Connection conn = data.verbind();
 
 		String table = "Sporter";

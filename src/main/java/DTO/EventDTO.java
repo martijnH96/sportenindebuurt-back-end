@@ -9,18 +9,18 @@ public class EventDTO {
 	private int field;
 	private int numberOfParticipants;
 	private Date date;
-	private ArrayList<String> participants;
+	//private ArrayList<String> participants;
 	private String postalcode;
 	private int housenumber;
 
 	public EventDTO(int id, String sport, int field, int numberOfParticipants, Date date,
-					ArrayList<String> participants, String postalcode, int housenumber) {
+					/*ArrayList<String> participants,*/ String postalcode, int housenumber) {
 		Id = id;
 		this.sport = sport;
 		this.field = field;
 		this.numberOfParticipants = numberOfParticipants;
 		this.date = date;
-		this.participants = participants;
+		//this.participants = participants;
 		this.postalcode = postalcode;
 		this.housenumber = housenumber;
 	}
@@ -45,9 +45,9 @@ public class EventDTO {
 		return date;
 	}
 
-	public ArrayList<String> getParticipants() {
+	/*public ArrayList<String> getParticipants() {
 		return participants;
-	}
+	}*/
 
 	public String getPostalcode() {
 		return postalcode;
@@ -73,9 +73,9 @@ public class EventDTO {
 		this.numberOfParticipants = numberOfParticipants;
 	}
 
-	public void setParticipants(ArrayList<String> participants) {
+	/*public void setParticipants(ArrayList<String> participants) {
 		this.participants = participants;
-	}
+	}*/
 
 	public void setDate(Date date) {
 		this.date = date;

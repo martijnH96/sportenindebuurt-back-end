@@ -121,6 +121,15 @@ public class EventDAOImpl implements EventDAO{
 
 	@Override
 	public void insert(EventDTO event) throws SQLException {
+		Connection conn = data.verbind();
 
+		String table = "Sporter";
+		String columns = "";
+		String[] dataValues = {event.getSport(), event.getField() + "", event};
+		String[] where = {"id = ", "" + user.getID()};
+
+		data.insert(table, columns, dataValues, conn);
+
+		data.closeConnection(conn);
 	}
 }

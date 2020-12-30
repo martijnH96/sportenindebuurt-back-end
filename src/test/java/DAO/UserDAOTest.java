@@ -112,4 +112,22 @@ public class UserDAOTest {
 		//assert
 		Assertions.assertEquals(0, users.length);
 	}
+
+	@Test
+	public void selectWhereError(){
+		//arrange
+		UserDTO[] users = null;
+		String[] wheres = {"id = "};
+		String[] email = {"0"};
+
+		//act
+		try {
+			users = userDAO.selectWhere(wheres, email);
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		exception.expect(SQLException.class);
+	}
 }

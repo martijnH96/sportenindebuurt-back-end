@@ -96,11 +96,20 @@ public class UserDAOTest {
 	}
 
 	@Test
-	public void selectWhereTestError(){
+	public void selectWhereTestNull(){
 		//arrange
+		UserDTO[] users = null;
+		String[] wheres = {"SporterId = "};
+		String[] email = {"0"};
 
 		//act
+		try {
+			users = userDAO.selectWhere(wheres, email);
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
 
 		//assert
+		Assertions.assertEquals(0, users.length);
 	}
 }

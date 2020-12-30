@@ -62,9 +62,16 @@ public class UserDAOTest {
 	@Test
 	public void selectIdTestNull(){
 		//arrange
+		UserDTO user = null;
 
 		//act
+		try {
+			user = userDAO.selectId(0);
+		} catch (SQLException sql){
+			sql.printStackTrace();
+		}
 
 		//assert
+		Assertions.assertTrue(user == null);
 	}
 }

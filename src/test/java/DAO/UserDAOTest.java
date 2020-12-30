@@ -7,13 +7,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class UserDAOTest {
-	//UserDTO user;
+	UserDAOImpl userDAO;
 	public final ExpectedException exception = ExpectedException.none();
 
 	@BeforeEach
 	public void setup(){
 		//komt nog wel
+		userDAO = new UserDAOImpl();
 	}
 
 	@AfterEach
@@ -23,6 +27,17 @@ public class UserDAOTest {
 
 	@Test
 	public void selectAllTest(){
-		
+		//arrange
+		UserDTO[] users = null;
+
+		//act
+		try {
+			users = userDAO.selectAll();
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+
+		//assert
+		Assertions.assertTrue(users.length >= 1);
 	}
 }

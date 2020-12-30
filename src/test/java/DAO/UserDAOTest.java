@@ -74,4 +74,22 @@ public class UserDAOTest {
 		//assert
 		Assertions.assertTrue(user == null);
 	}
+
+	@Test
+	public void selectWhereTest(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void selectWhereTestError(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

@@ -130,4 +130,7 @@ public class UserDAOTest {
 		//assert
 		exception.expect(SQLException.class);
 	}
+
+	@Test
+
 }

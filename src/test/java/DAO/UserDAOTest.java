@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 public class UserDAOTest {
-	UserDTO user;
+	//UserDTO user;
 	public final ExpectedException exception = ExpectedException.none();
 
 	@BeforeEach
@@ -21,5 +21,8 @@ public class UserDAOTest {
 		//komt nog wel
 	}
 
-
+	@Test
+	public void selectAllTest(){
+		
+	}
 }

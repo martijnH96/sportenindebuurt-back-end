@@ -40,4 +40,24 @@ public class UserDAOTest {
 		//assert
 		Assertions.assertTrue(users.length >= 1);
 	}
+
+	@Test
+	public void selectIdTest(){
+		//arrange
+		UserDTO user = null;
+
+		//act
+		
+
+		//assert
+	}
+
+	@Test
+	public void selectIdTestNull(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

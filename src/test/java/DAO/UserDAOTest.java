@@ -9,4 +9,17 @@ import org.junit.rules.ExpectedException;
 
 public class UserDAOTest {
 	UserDTO user;
+	public final ExpectedException exception = ExpectedException.none();
+
+	@BeforeEach
+	public void setup(){
+		//komt nog wel
+	}
+
+	@AfterEach
+	public void close(){
+		//komt nog wel
+	}
+
+
 }

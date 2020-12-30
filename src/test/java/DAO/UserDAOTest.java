@@ -78,10 +78,21 @@ public class UserDAOTest {
 	@Test
 	public void selectWhereTest(){
 		//arrange
+		UserDTO[] users = null;
+		String[] wheres = {"email = "};
+		String[] email = {"testertest@gmail.com"};
 
 		//act
+		try {
+			users = userDAO.selectWhere(wheres, email);
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+		}
+
+		System.out.println(users[0].getEmail());
 
 		//assert
+		Assertions.assertTrue(email[0] == users[0].getEmail());
 	}
 
 	@Test

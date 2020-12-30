@@ -47,7 +47,9 @@ public class Database implements verbinding{
 		String sql = "SELECT " + columns + " FROM " + table;
 
 		if(whereStat.length != 0){
-			sql.concat(" WHERE " + whereStat[0] + "?");
+			System.out.println("where");
+			sql = sql + " WHERE " + whereStat[0] + "?";
+			System.out.println(sql);
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);

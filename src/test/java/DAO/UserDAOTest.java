@@ -48,7 +48,7 @@ public class UserDAOTest {
 
 		//act
 		try {
-			user = userDAO.selectId(0);
+			user = userDAO.selectId(2);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}

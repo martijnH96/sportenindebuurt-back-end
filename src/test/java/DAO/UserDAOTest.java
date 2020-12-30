@@ -92,7 +92,7 @@ public class UserDAOTest {
 		System.out.println(users[0].getEmail());
 
 		//assert
-		Assertions.assertTrue(email[0] == users[0].getEmail());
+		Assertions.assertTrue(email[0].equals(users[0].getEmail()));
 	}
 
 	@Test

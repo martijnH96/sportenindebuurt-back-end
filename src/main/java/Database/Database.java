@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 // voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
 
@@ -56,8 +57,17 @@ public class Database implements verbinding{
 
 		if(whereValues.length != 0) {
 
-			for (int i = 1; i < whereValues.length; i++){
-				stmt.setString(i, whereValues[i]);
+			for (int i = 0; i < whereValues.length; i++){
+
+				//System.out.println("wat gaan we doen?"); werd geskipt
+				if(isInt(whereValues[i])) {
+					int inputInt = Integer.parseInt(whereValues[i]);
+					stmt.setInt(i + 1, inputInt);
+					//System.out.println("ik word geskipt"); werd geskipt
+				} else {
+					stmt.setString(i + 1, whereValues[i]);
+					//System.out.println("ik word geskipt"); werd geskipt
+				}
 			}
 			//stmt.setString(1, "*");
 			//stmt.setString(1, "Sport");
@@ -139,6 +149,13 @@ public class Database implements verbinding{
 		conn.close();
 
 		return i;
+	}
+
+	private static boolean isInt(String input) {
+		String regex = "^[0-9]+$";
+		Pattern pattern = Pattern.compile(regex);
+
+		return pattern.matcher(input).matches();
 	}
 
 	/*

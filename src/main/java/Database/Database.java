@@ -59,14 +59,14 @@ public class Database implements verbinding{
 
 			for (int i = 0; i < whereValues.length; i++){
 
-				//System.out.println("wat gaan we doen?"); werd geskipt
+				//System.out.println("wat gaan we doen?"); //werd geskipt
 				if(isInt(whereValues[i])) {
 					int inputInt = Integer.parseInt(whereValues[i]);
 					stmt.setInt(i + 1, inputInt);
-					//System.out.println("ik word geskipt"); werd geskipt
+					//System.out.println("ik word geskipt"); //werd geskipt
 				} else {
 					stmt.setString(i + 1, whereValues[i]);
-					//System.out.println("ik word geskipt"); werd geskipt
+					//System.out.println("ik word geskipt"); //werd geskipt
 				}
 			}
 			//stmt.setString(1, "*");

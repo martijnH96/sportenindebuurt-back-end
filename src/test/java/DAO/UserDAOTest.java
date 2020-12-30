@@ -53,8 +53,10 @@ public class UserDAOTest {
 			sql.printStackTrace();
 		}
 
+		System.out.println(user.getName());
+
 		//assert
-		Assertions.assertTrue(user.getName() == "tester");
+		Assertions.assertTrue(user.getID() == 2);
 	}
 
 	@Test

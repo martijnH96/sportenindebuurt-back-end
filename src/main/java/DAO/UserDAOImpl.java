@@ -55,7 +55,7 @@ public class UserDAOImpl implements UserDAO{
 		ResultSet rows;
 		String table = "Sporter";
 		String columns = "*";
-		String[] where = {"id = "};
+		String[] where = {"SporterId = "};
 		String[] idValues = {"" + id};
 
 		rows = data.select(table, columns, where, idValues, conn);

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -134,8 +135,15 @@ public class UserDAOTest {
 	@Test
 	public void updateTest(){
 		//arrange
+		Date date = new Date(0);
+		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 1);
 
 		//act
+		try {
+			userDAO.update(user);
+		} catch (SQLException sql){
+			sql.printStackTrace();
+		}
 
 		//assert
 	}

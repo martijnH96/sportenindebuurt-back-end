@@ -146,10 +146,13 @@ public class Database implements verbinding{
 		}
 
 		if(where.length != 0){
-			stmt.setString(data.length, where[1]);
+			//System.out.println();
+			stmt.setString(data.length + 1, where[1]);
 		}
 
-		//int i = stmt.executeUpdate();
+
+
+		int i = stmt.executeUpdate();
 
 		conn.close();
 

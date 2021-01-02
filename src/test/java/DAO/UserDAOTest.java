@@ -143,6 +143,7 @@ public class UserDAOTest {
 			userDAO.update(user);
 		} catch (SQLException sql){
 			sql.printStackTrace();
+			Assertions.assertTrue(false);
 		}
 
 		//assert

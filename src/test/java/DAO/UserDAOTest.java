@@ -73,7 +73,7 @@ public class UserDAOTest {
 		}
 
 		//assert
-		Assertions.assertTrue(user == null);
+		Assertions.assertNull(user);
 	}
 
 	@Test
@@ -143,19 +143,11 @@ public class UserDAOTest {
 			userDAO.update(user);
 		} catch (SQLException sql){
 			sql.printStackTrace();
-			Assertions.assertTrue(false);
+			Assertions.fail();
 		}
 
 		//assert
-	}
-
-	@Test
-	public void updateTestNoChange(){
-		//arrange
-
-		//act
-
-		//assert
+		//heb geen assert die ik hier kan gebruiken
 	}
 
 	@Test

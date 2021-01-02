@@ -153,10 +153,18 @@ public class UserDAOTest {
 	@Test
 	public void updateTestWrongData(){
 		//arrange
+		Date date = new Date(0);
+		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 0);
 
 		//act
+		try {
+			userDAO.update(user);
+		} catch (SQLException sql){
+			sql.printStackTrace();
+		}
 
 		//assert
+		exception.expect(SQLException.class);
 	}
 
 	@Test

@@ -170,6 +170,8 @@ public class UserDAOTest {
 	@Test
 	public void insertTest(){
 		//arrange
+		Date date = new Date(0);
+		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 0);
 
 		//act
 
@@ -179,6 +181,8 @@ public class UserDAOTest {
 	@Test
 	public void insetTestDuplicate(){
 		//arrange
+		Date date = new Date(0);
+		UserDTO user = new UserDTO(0, "tester", "test", "testertest@gmail.com", date, "test", 0);
 
 		//act
 
@@ -188,6 +192,8 @@ public class UserDAOTest {
 	@Test
 	public void insertTestInvalidData(){
 		//arrange
+		Date date = new Date(0);
+		UserDTO user = new UserDTO(0, "tester", "test", "testertest@gmail.com", date, "test", 0);
 
 		//act
 

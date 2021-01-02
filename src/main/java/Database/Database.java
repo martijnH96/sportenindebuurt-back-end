@@ -92,13 +92,13 @@ public class Database implements verbinding{
 
 		for(int i = 0; i < data.length; i++){
 			if(i == 0){
-				sql.concat("?");
+				sql = sql + "?";
 			} else {
-				sql.concat(", ?");
+				sql = sql + ", ?";
 			}
 		}
 
-		sql.concat(")");
+		sql = sql + ")";
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		//System.out.println("perpared");
@@ -106,6 +106,8 @@ public class Database implements verbinding{
 		for(int i = 0; i < data.length; i++){
 			stmt.setString(i + 1, data[i]);
 		}
+
+		System.out.println(sql);
 
 		int i = stmt.executeUpdate();
 

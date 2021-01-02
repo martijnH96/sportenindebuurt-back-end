@@ -129,7 +129,7 @@ public class UserDAOImpl implements UserDAO{
 		Connection conn = data.verbind();
 
 		String table = "Sporter";
-		String columns = "";
+		String columns = "naam, DateOdBirth, achternaam, email, wachtwoord, Locatie_adresNr";
 		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
 				user.getPassword(), user.getAdres() + ""};
 		String[] where = {"id = ", "" + user.getID()};

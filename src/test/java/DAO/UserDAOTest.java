@@ -171,7 +171,7 @@ public class UserDAOTest {
 	public void insertTest(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testertest@gmail.com", date, "test", 0);
+		UserDTO user = new UserDTO(0, "tester", "test", "testerstest@gmail.com", date, "test", 1);
 		int numUsers = 0;
 		int newNumUsers = 0;
 

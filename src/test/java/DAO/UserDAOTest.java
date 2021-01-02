@@ -132,5 +132,56 @@ public class UserDAOTest {
 	}
 
 	@Test
+	public void updateTest(){
+		//arrange
 
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void updateTestNoChange(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void updateTestWrongData(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void insertTest(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void insetTestDuplicate(){
+		//arrange
+
+		//act
+
+		//assert
+	}
+
+	@Test
+	public void insertTestInvalidData(){
+		//arrange
+
+		//act
+
+		//assert
+	}
 }

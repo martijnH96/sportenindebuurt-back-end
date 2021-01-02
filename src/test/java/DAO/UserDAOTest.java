@@ -57,7 +57,7 @@ public class UserDAOTest {
 		System.out.println(user.getName());
 
 		//assert
-		Assertions.assertTrue(user.getID() == 2);
+		Assertions.assertEquals(2, user.getID());
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class UserDAOTest {
 		System.out.println(users[0].getEmail());
 
 		//assert
-		Assertions.assertTrue(email[0].equals(users[0].getEmail()));
+		Assertions.assertEquals(email[0], users[0].getEmail());
 	}
 
 	@Test
@@ -117,7 +117,7 @@ public class UserDAOTest {
 	@Test
 	public void selectWhereError(){
 		//arrange
-		UserDTO[] users = null;
+		UserDTO[] users;// = null;
 		String[] wheres = {"id = "};
 		String[] email = {"0"};
 

@@ -117,13 +117,13 @@ public class Database implements verbinding{
 	public int update(String table, String[] columns, String[] data, String[] where, Connection conn) throws SQLException {
 		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
-		String sql = "INSERT " + table + " SET ";
+		String sql = "UPDATE " + table + " SET ";
 
 		for (int i = 0; i < data.length; i++){
 			if (i == 0){
-				sql.concat(columns[i] + " = ?");
+				sql = sql + columns[i] + " = ?";
 			} else {
-				sql.concat(", " + columns[i] + " = ?");
+				sql = sql + ", " + columns[i] + " = ?";
 			}
 		}
 
@@ -132,9 +132,14 @@ public class Database implements verbinding{
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
+
+		/* voorbeeld
 		stmt.setString(1,"tennis");
 		stmt.setInt(2, 2);
 		stmt.setString(3,"niets");
+		 */
+
+		System.out.println(sql);
 
 		for (int i = 0; i < data.length; i++){
 			stmt.setString(i + 1, data[i]);

@@ -128,7 +128,7 @@ public class Database implements verbinding{
 		}
 
 		if(where.length != 0){
-			sql.concat(" WHERE " + where[0]);
+			sql = sql + (" WHERE " + where[0] + "?");
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
@@ -149,11 +149,11 @@ public class Database implements verbinding{
 			stmt.setString(data.length, where[1]);
 		}
 
-		int i = stmt.executeUpdate();
+		//int i = stmt.executeUpdate();
 
 		conn.close();
 
-		return i;
+		return 0;//i;
 	}
 
 	private static boolean isInt(String input) {

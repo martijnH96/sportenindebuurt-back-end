@@ -117,7 +117,7 @@ public class UserDAOImpl implements UserDAO{
 		String[] columns = {"naam", "DateOdBirth", "achternaam", "email", "wachtwoord", "Locatie_adresNr"};
 		String[] dataValues = {user.getName(), user.getDateOfBirth() + "", user.getLastname(), user.getEmail(),
 				user.getPassword(), user.getAdres() + ""};
-		String[] where = {"id = ", "" + user.getID()};
+		String[] where = {"SporterId = ", "" + user.getID()};
 
 		data.update(table, columns, dataValues, where, conn);
 

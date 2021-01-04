@@ -13,19 +13,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SportingGroundDAOTest {
-	SportingGroundDAOTest sportingGround;
+	SportingGroundDAOImpl sportingGroundDAO;
 	public final ExpectedException exception = ExpectedException.none();
 
 	@BeforeEach
 	public void setup(){
 		//komt nog wel
-		sportingGround = new SportingGroundDAOTest();
+		sportingGroundDAO = new SportingGroundDAOImpl();
 	}
 
 	@AfterEach
 	public void close(){
 		//komt nog wel
 	}
+
+	//TODO: fix copy fouten
 
 	@Test
 	public void selectAllTest(){
@@ -80,33 +82,31 @@ public class SportingGroundDAOTest {
 	@Test
 	public void selectWhereTest(){
 		//arrange
-		UserDTO[] users = null;
+		SportingGroundDTO[] sportingGround = null;
 		String[] wheres = {"email = "};
 		String[] email = {"testertest@gmail.com"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sportingGround = SportingGroundDAOImpl.selectWhere(wheres, email);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
-		System.out.println(users[0].getEmail());
-
 		//assert
-		Assertions.assertEquals(email[0], users[0].getEmail());
+		Assertions.assertEquals(email[0], s[0].getEmail());
 	}
 
 	@Test
 	public void selectWhereTestNull(){
 		//arrange
-		UserDTO[] users = null;
+		SportingGroundDTO[] sportingGround = null;
 		String[] wheres = {"SporterId = "};
 		String[] email = {"0"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sportingGround = sportingGroundDAO.selectWhere(wheres, email);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
@@ -118,13 +118,13 @@ public class SportingGroundDAOTest {
 	@Test
 	public void selectWhereError(){
 		//arrange
-		UserDTO[] users;// = null;
-		String[] wheres = {"id = "};
+		SportingGroundDTO[] sportingGround;// = null;
+		String[] wheres = {"Id = "};
 		String[] email = {"0"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sportingGround = sportingGroundDAO.selectWhere(wheres, email);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
@@ -137,11 +137,11 @@ public class SportingGroundDAOTest {
 	public void updateTest(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 1);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
 
 		//act
 		try {
-			userDAO.update(user);
+			sportingGroundDAO.update(sportingGround);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 			Assertions.fail();
@@ -155,11 +155,11 @@ public class SportingGroundDAOTest {
 	public void updateTestWrongData(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 0);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
 
 		//act
 		try {
-			userDAO.update(user);
+			sportingGroundDAO.update(sportingGround);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
@@ -172,25 +172,25 @@ public class SportingGroundDAOTest {
 	public void insertTest(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testerstest@gmail.com", date, "test", 1);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
 		int numUsers = 0;
 		int newNumUsers = 0;
 
 		//act
 		try{
-			numUsers = userDAO.selectAll().length;
+			numUsers = sportingGroundDAO.selectAll().length;
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
 		try {
-			userDAO.insert(user);
+			sportingGroundDAO.insert(sportingGround);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
 		try{
-			newNumUsers = userDAO.selectAll().length;
+			newNumUsers = sportingGroundDAO.selectAll().length;
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
@@ -203,13 +203,13 @@ public class SportingGroundDAOTest {
 	public void insetTestDuplicate(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testerstests@gmail.com", date, "test", 1);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
 		int numUsers = 0;
 		int newNumUsers = 0;
 
 		//act
 		try {
-			userDAO.insert(user);
+			sportingGroundDAO.insert(sportingGround);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
@@ -222,13 +222,13 @@ public class SportingGroundDAOTest {
 	public void insertTestInvalidData(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testertest@gmail.com", date, "test", 0);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 0);
 		int numUsers = 0;
 		int newNumUsers = 0;
 
 		//act
 		try {
-			userDAO.insert(user);
+			sportingGroundDAO.insert(sportingGround);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}

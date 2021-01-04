@@ -1,5 +1,6 @@
 package DAO;
 
+import DTO.SportDTO;
 import DTO.UserDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -29,35 +30,33 @@ public class SportDAOTest {
 	@Test
 	public void selectAllTest(){
 		//arrange
-		UserDTO[] users = null;
+		SportDTO[] sports = null;
 
 		//act
 		try {
-			users = userDAO.selectAll();
+			sports = sportDAO.selectAll();
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
 		//assert
-		Assertions.assertTrue(users.length >= 1);
+		Assertions.assertTrue(sports.length >= 1);
 	}
 
 	@Test
 	public void selectIdTest(){
 		//arrange
-		UserDTO user = null;
+		SportDTO sport = null;
 
 		//act
 		try {
-			user = userDAO.selectId(2);
+			sport = sportDAO.selectId(2);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
-		System.out.println(user.getName());
-
 		//assert
-		Assertions.assertEquals(2, user.getID());
+		Assertions.assertEquals(2, sport.g);
 	}
 
 	@Test

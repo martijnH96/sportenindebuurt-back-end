@@ -45,31 +45,6 @@ public class SportDAOImpl implements SportDAO{
 	}
 
 	@Override
-	public SportDTO selectId(int id) throws SQLException {
-		Connection conn = data.verbind();
-
-		SportDTO sport = null;
-		ResultSet rows;
-		String table = "Sport";
-		String columns = "*";
-
-		rows = data.select(table, columns, new String[0], new String[0], conn);
-
-		while (rows.next()){
-			var name = rows.getString(1);
-			var isTeam = rows.getBoolean(2);
-			var maxSpelers = rows.getInt(3);
-			var minSpelers = rows.getInt(4);
-
-			sport = new SportDTO(name, isTeam, maxSpelers, minSpelers);
-		}
-
-		data.closeConnection(conn);
-
-		return sport;
-	}
-
-	@Override
 	public SportDTO[] selectWhere(String[] statements, String[] variables) throws SQLException {
 		Connection conn = data.verbind();
 

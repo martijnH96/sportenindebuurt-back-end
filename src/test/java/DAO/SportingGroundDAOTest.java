@@ -84,7 +84,7 @@ public class SportingGroundDAOTest {
 
 		//act
 		try {
-			sportingGround = SportingGroundDAOImpl.selectWhere(wheres, naam); //hoe is selectWhereTest static?
+			sportingGround = sportingGroundDAO.selectWhere(wheres, naam); //hoe is selectWhereTest static?
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
@@ -133,7 +133,7 @@ public class SportingGroundDAOTest {
 	public void updateTest(){
 		//arrange
 		Date date = new Date(0);
-		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(2, "een test locatie", 1);
 
 		//act
 		try {

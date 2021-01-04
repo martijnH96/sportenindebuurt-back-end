@@ -108,7 +108,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 		String table = "SportGelegenheid";
 		String[] columns = {"naam", "Locatie_adresNr"};
 		String[] dataValues = {sportingGround.getName(), "" + sportingGround.getAdres()};
-		String[] where = {"id = ", "" + sportingGround.getID()};
+		String[] where = {"GelegenheidId = ", "" + sportingGround.getID()};
 
 		data.update(table, columns, dataValues, where, conn);
 

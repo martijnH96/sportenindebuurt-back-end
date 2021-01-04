@@ -121,7 +121,7 @@ public class LocationDAOImpl implements LocationDAO{
 		Connection conn = data.verbind();
 
 		String table = "Locatie";
-		String columns = "";
+		String columns = "postcode, huisnummer, straatnaam";
 		String[] dataValues = {location.getPostalcode(), location.getHousenumber() + "", location.getStreetname() + ""};
 
 		data.insert(table, columns, dataValues, conn);

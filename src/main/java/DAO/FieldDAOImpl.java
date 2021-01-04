@@ -12,13 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class FieldDAOImpl implements FieldDAO{
-	private ArrayList<FieldDTO> Fields;
-	private Database data;
+	private Database data = new Database();
 
-	public FieldDAOImpl(ArrayList<FieldDTO> fields) {
-		Fields = fields;
-		data = new Database();
-	}
+	public FieldDAOImpl() {}
 
 	@Override
 	public FieldDTO[] selectAll() throws SQLException {

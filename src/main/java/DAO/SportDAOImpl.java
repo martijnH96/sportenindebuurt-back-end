@@ -88,7 +88,7 @@ public class SportDAOImpl implements SportDAO{
 	}
 
 	@Override
-	public void newSport(SportDTO sport) throws SQLException {
+	public void insert(SportDTO sport) throws SQLException {
 		Connection conn = data.verbind();
 
 		String table = "Sport";

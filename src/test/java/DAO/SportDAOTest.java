@@ -1,7 +1,6 @@
 package DAO;
 
 import DTO.SportDTO;
-import DTO.UserDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,51 +45,50 @@ public class SportDAOTest {
 	@Test
 	public void selectWhereTest(){
 		//arrange
-		UserDTO[] users = null;
-		String[] wheres = {"email = "};
-		String[] email = {"testertest@gmail.com"};
+		SportDTO[] sports = null;
+		String[] wheres = {"naam = "};
+		String[] name = {"Tennis"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sports = sportDAO.selectWhere(wheres, name);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
-		System.out.println(users[0].getEmail());
 
 		//assert
-		Assertions.assertEquals(email[0], users[0].getEmail());
+		Assertions.assertEquals(name[0], sports[0].getName());
 	}
 
 	@Test
 	public void selectWhereTestNull(){
 		//arrange
-		UserDTO[] users = null;
-		String[] wheres = {"SporterId = "};
-		String[] email = {"0"};
+		SportDTO[] sports = null;
+		String[] wheres = {"naam = "};
+		String[] name = {"0"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sports = sportDAO.selectWhere(wheres, name);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
 		//assert
-		Assertions.assertEquals(0, users.length);
+		Assertions.assertEquals(0, sports.length);
 	}
 
 	@Test
 	public void selectWhereError(){
 		//arrange
-		UserDTO[] users;// = null;
-		String[] wheres = {"id = "};
-		String[] email = {"0"};
+		SportDTO[] sports = null;
+		String[] wheres = {"naam = "};
+		String[] name = {"0"};
 
 		//act
 		try {
-			users = userDAO.selectWhere(wheres, email);
+			sports = sportDAO.selectWhere(wheres, name);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
@@ -103,11 +101,11 @@ public class SportDAOTest {
 	public void updateTest(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 1);
+		SportDTO sport = new SportDTO("test", false, 2, 2);
 
 		//act
 		try {
-			userDAO.update(user);
+			sportDAO.update(sport);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 			Assertions.fail();
@@ -118,39 +116,22 @@ public class SportDAOTest {
 	}
 
 	@Test
-	public void updateTestWrongData(){
-		//arrange
-		Date date = new Date(0);
-		UserDTO user = new UserDTO(2, "tester", "test", "testertest@gmail.com", date, "test", 0);
-
-		//act
-		try {
-			userDAO.update(user);
-		} catch (SQLException sql){
-			sql.printStackTrace();
-		}
-
-		//assert
-		exception.expect(SQLException.class);
-	}
-
-	@Test
 	public void insertTest(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testerstests@gmail.com", date, "test", 1);
+		SportDTO sport = new SportDTO("testSport", false, 2, 2);
 		int numUsers = 0;
 		int newNumUsers = 0;
 
 		//act
 		try{
-			numUsers = userDAO.selectAll().length;
+			numUsers = sportDAO.selectAll().length;
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
 		try {
-			userDAO.insert(user);
+			sportDAO.insert(sport);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}

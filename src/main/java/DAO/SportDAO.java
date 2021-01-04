@@ -12,7 +12,7 @@ public interface SportDAO {
 	public SportDTO[] selectWhere(String[] statements, String[] variables) throws SQLException;
 
 	//insert
-	public void newSport(SportDTO sport) throws SQLException; //zelfde probleem als met sportingground
+	public void insert(SportDTO sport) throws SQLException; //zelfde probleem als met sportingground
 
 	//update
 	public void update(SportDTO sport) throws SQLException;

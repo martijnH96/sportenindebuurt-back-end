@@ -199,7 +199,7 @@ public class SportingGroundDAOTest {
 	public void insetTestDuplicate(){
 		//arrange
 		Date date = new Date(0);
-		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "een test locatie", 1);
+		SportingGroundDTO sportingGround = new SportingGroundDTO(0, "testing Location", 1);
 		int numUsers = 0;
 		int newNumUsers = 0;
 

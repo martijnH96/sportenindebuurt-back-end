@@ -120,7 +120,7 @@ public class SportingGroundDAOImpl implements SportingGroundDAO{
 		Connection conn = data.verbind();
 
 		String table = "SportGelegenheid";
-		String columns = "";
+		String columns = "naam, maxPersonen, Locatie_adresNr";
 		String[] dataValues = {sportingGround.getName(), "0", sportingGround.getAdres() + ""};
 		String[] where = {"id = ", "" + sportingGround.getID()};
 

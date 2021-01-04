@@ -44,38 +44,6 @@ public class SportDAOTest {
 	}
 
 	@Test
-	public void selectIdTest(){
-		//arrange
-		SportDTO sport = null;
-
-		//act
-		try {
-			sport = sportDAO.selectId(2);
-		} catch (SQLException sql){
-			sql.printStackTrace();
-		}
-
-		//assert
-		Assertions.assertEquals(2, sport.g);
-	}
-
-	@Test
-	public void selectIdTestNull(){
-		//arrange
-		UserDTO user = null;
-
-		//act
-		try {
-			user = userDAO.selectId(0);
-		} catch (SQLException sql){
-			sql.printStackTrace();
-		}
-
-		//assert
-		Assertions.assertNull(user);
-	}
-
-	@Test
 	public void selectWhereTest(){
 		//arrange
 		UserDTO[] users = null;

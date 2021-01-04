@@ -66,7 +66,7 @@ public class SportDAOTest {
 		//arrange
 		SportDTO[] sports = null;
 		String[] wheres = {"naam = "};
-		String[] name = {"0"};
+		String[] name = {"bestaat niet"};
 
 		//act
 		try {

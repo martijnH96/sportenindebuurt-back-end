@@ -1,5 +1,7 @@
 package DAO;
 
+//TODO: fix SQLinjection
+
 import DTO.LocationDTO;
 
 import Database.Database;

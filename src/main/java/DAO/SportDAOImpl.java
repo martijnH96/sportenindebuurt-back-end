@@ -77,7 +77,7 @@ public class SportDAOImpl implements SportDAO{
 	public void update(SportDTO sport) throws SQLException{
 		Connection conn = data.verbind();
 
-		String table = "SportGelegenheid";
+		String table = "Sport";
 		String[] columns = {"naam", "isTeamSport", "minSpelers", "maxSpelers"};
 		String[] dataValues = {sport.getName(), sport.isTeamSport() + "", "" + sport.getMinPlayers(), "" + sport.getMaxPlayers()};
 		String[] where = {"naam = ", sport.getName()};

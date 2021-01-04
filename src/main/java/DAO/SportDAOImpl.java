@@ -10,13 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SportDAOImpl implements SportDAO{
-	private ArrayList<SportDTO> sports;
-	private Database data;
+	//private ArrayList<SportDTO> sports;
+	private Database data = new Database();
 
-	public SportDAOImpl(ArrayList<SportDTO> sports) {
-		this.sports = sports;
-		this.data = new Database();
-	}
+	public SportDAOImpl() {}
 
 	@Override
 	public SportDTO[] selectAll() throws SQLException {

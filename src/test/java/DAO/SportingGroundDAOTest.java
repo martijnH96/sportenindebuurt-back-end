@@ -27,81 +27,77 @@ public class SportingGroundDAOTest {
 		//komt nog wel
 	}
 
-	//TODO: fix copy fouten
-
 	@Test
 	public void selectAllTest(){
 		//arrange
-		UserDTO[] users = null;
+		SportingGroundDTO[] sportingGround = null;
 
 		//act
 		try {
-			users = userDAO.selectAll();
+			sportingGround = sportingGroundDAO.selectAll();
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
 		//assert
-		Assertions.assertTrue(users.length >= 1);
+		Assertions.assertTrue(sportingGround.length >= 1);
 	}
 
 	@Test
 	public void selectIdTest(){
 		//arrange
-		UserDTO user = null;
+		SportingGroundDTO sportingGround = null;
 
 		//act
 		try {
-			user = userDAO.selectId(2);
+			sportingGround = sportingGroundDAO.selectID(1);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
-		System.out.println(user.getName());
-
 		//assert
-		Assertions.assertEquals(2, user.getID());
+		Assertions.assertEquals(1, sportingGround.getID());
 	}
 
 	@Test
 	public void selectIdTestNull(){
 		//arrange
-		UserDTO user = null;
+		SportingGroundDTO sportingGround = null;
 
 		//act
 		try {
-			user = userDAO.selectId(0);
+			sportingGround = sportingGroundDAO.selectID(0);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
 
 		//assert
-		Assertions.assertNull(user);
+		Assertions.assertNull(sportingGround);
 	}
 
 	@Test
 	public void selectWhereTest(){
 		//arrange
 		SportingGroundDTO[] sportingGround = null;
-		String[] wheres = {"email = "};
-		String[] email = {"testertest@gmail.com"};
+		String[] wheres = {"naam = "};
+		String[] naam = {"Park Presikhaaf"};
 
 		//act
 		try {
-			sportingGround = SportingGroundDAOImpl.selectWhere(wheres, email);
+			sportingGround = SportingGroundDAOImpl.selectWhere(wheres, naam); //hoe is selectWhereTest static?
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 		}
 
 		//assert
-		Assertions.assertEquals(email[0], s[0].getEmail());
+		Assertions.assertEquals(naam[0], sportingGround[0].getName());
 	}
 
 	@Test
 	public void selectWhereTestNull(){
 		//arrange
 		SportingGroundDTO[] sportingGround = null;
-		String[] wheres = {"SporterId = "};
+		String[] wheres = {"GelegenheidId = "};
 		String[] email = {"0"};
 
 		//act
@@ -112,7 +108,7 @@ public class SportingGroundDAOTest {
 		}
 
 		//assert
-		Assertions.assertEquals(0, users.length);
+		Assertions.assertEquals(0, sportingGround.length);
 	}
 
 	@Test

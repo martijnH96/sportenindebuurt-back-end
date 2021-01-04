@@ -137,7 +137,7 @@ public class SportDAOTest {
 		}
 
 		try{
-			newNumUsers = userDAO.selectAll().length;
+			newNumUsers = sportDAO.selectAll().length;
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}
@@ -150,32 +150,13 @@ public class SportDAOTest {
 	public void insetTestDuplicate(){
 		//arrange
 		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testerstests@gmail.com", date, "test", 1);
+		SportDTO sport = new SportDTO("Tennis", false, 2, 2);
 		int numUsers = 0;
 		int newNumUsers = 0;
 
 		//act
 		try {
-			userDAO.insert(user);
-		} catch (SQLException sql){
-			sql.printStackTrace();
-		}
-
-		//assert
-		exception.expect(SQLException.class);
-	}
-
-	@Test
-	public void insertTestInvalidData(){
-		//arrange
-		Date date = new Date(0);
-		UserDTO user = new UserDTO(0, "tester", "test", "testertest@gmail.com", date, "test", 0);
-		int numUsers = 0;
-		int newNumUsers = 0;
-
-		//act
-		try {
-			userDAO.insert(user);
+			sportDAO.insert(sport);
 		} catch (SQLException sql){
 			sql.printStackTrace();
 		}

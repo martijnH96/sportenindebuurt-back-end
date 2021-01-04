@@ -95,7 +95,13 @@ public class SportDAOImpl implements SportDAO{
 
 		String table = "Sport";
 		String columns = "";
-		String[] dataValues = {sport.getName(), sport.isTeamSport() + "", sport.getMinPlayers() + "", "" + sport.getMaxPlayers()};
+		String team;
+		if(sport.isTeamSport()){
+			team = "1";
+		} else {
+			team = "0";
+		}
+		String[] dataValues = {sport.getName(), team, sport.getMinPlayers() + "", "" + sport.getMaxPlayers()};
 
 		data.insert(table, columns, dataValues, conn);
 

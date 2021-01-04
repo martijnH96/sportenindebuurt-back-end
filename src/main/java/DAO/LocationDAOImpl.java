@@ -55,7 +55,7 @@ public class LocationDAOImpl implements LocationDAO{
 		String table = "Locatie";
 		String columns = "*";
 		String[] where = {"adresNr = "};
-		String[] value = {"1"};
+		String[] value = {id + ""};
 
 		rows = data.select(table, columns, where, value, conn);
 
@@ -106,10 +106,10 @@ public class LocationDAOImpl implements LocationDAO{
 	public void update(LocationDTO location) throws SQLException {
 		Connection conn = data.verbind();
 
-		String table = "Sporter";
-		String[] columns = {"postcode", "huisnummer", "straatnaame"};
+		String table = "Locatie";
+		String[] columns = {"postcode", "huisnummer", "straatnaam"};
 		String[] dataValues = {location.getPostalcode(), location.getHousenumber() + "", location.getStreetname()};
-		String[] where = {"id = ", "" + location.getId()};
+		String[] where = {"adresNr = ", "" + location.getId()};
 
 		data.update(table, columns, dataValues, where, conn);
 
@@ -120,7 +120,7 @@ public class LocationDAOImpl implements LocationDAO{
 	public void insert(LocationDTO location) throws SQLException {
 		Connection conn = data.verbind();
 
-		String table = "Sporter";
+		String table = "Locatie";
 		String columns = "";
 		String[] dataValues = {location.getPostalcode(), location.getHousenumber() + "", location.getStreetname() + ""};
 

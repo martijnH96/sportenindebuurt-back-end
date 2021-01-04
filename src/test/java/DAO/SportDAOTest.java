@@ -147,7 +147,7 @@ public class SportDAOTest {
 	}
 
 	@Test
-	public void insetTestDuplicate(){
+	public void insertTestDuplicate(){
 		//arrange
 		Date date = new Date(0);
 		SportDTO sport = new SportDTO("Tennis", false, 2, 2);

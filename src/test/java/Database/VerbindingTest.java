@@ -1,6 +1,8 @@
 package Database;
 
 //import org.junit.jupiter.api.AfterEach;
+import database.Database;
+import database.Verbinding;
 import org.junit.jupiter.api.Assertions;
 //import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VerbindingTest implements verbinding {
+public class VerbindingTest implements Verbinding {
 	Database testDB = new Database();
 	Connection conn;
 	public final ExpectedException exception = ExpectedException.none();

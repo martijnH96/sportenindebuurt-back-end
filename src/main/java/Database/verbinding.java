@@ -1,10 +1,10 @@
-package Database;
+package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public interface verbinding {
+public interface Verbinding {
 	public default Connection maakVerbinding(String db, String user, String password) throws SQLException { //dit moet worden afgevangen
 
 		//link naar de DB

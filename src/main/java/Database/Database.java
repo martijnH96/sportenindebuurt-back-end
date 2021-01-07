@@ -1,4 +1,6 @@
-package Database;
+package database;
+
+import database.Verbinding;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,7 +29,7 @@ import java.util.regex.Pattern;
 * 	4.2 doe <Connection>.close()
 * */
 
-public class Database implements verbinding{
+public class Database implements Verbinding {
 	//private Connection conn;
 
 	public Database(){

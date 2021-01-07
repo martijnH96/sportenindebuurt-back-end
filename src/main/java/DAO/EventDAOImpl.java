@@ -1,10 +1,10 @@
-package DAO;
+package dao;
 
 //TODO: fix SQLinjection
 
 import DTO.EventDTO;
 import DTO.UserDTO;
-import Database.Database;
+import database.Database;
 
 import java.sql.Connection;
 import java.sql.Date;

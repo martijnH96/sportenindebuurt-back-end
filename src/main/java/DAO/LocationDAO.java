@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import DTO.LocationDTO;
+import dto.LocationDTO;
 
 import java.sql.SQLException;
 

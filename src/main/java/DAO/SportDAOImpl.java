@@ -1,10 +1,9 @@
-package DAO;
+package dao;
 
 //TODO: fix SQLinjection
 
-import DTO.LocationDTO;
-import DTO.SportDTO;
-import Database.Database;
+import dto.SportDTO;
+import database.Database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

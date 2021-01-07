@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import DTO.UserDTO;
+import dto.UserDTO;
 
 import java.sql.SQLException;
 

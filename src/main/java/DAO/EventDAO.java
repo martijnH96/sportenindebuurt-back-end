@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import DTO.EventDTO;
+import dto.EventDTO;
 
 import java.sql.Date;
 import java.sql.SQLException;

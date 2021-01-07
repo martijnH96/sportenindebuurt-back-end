@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import DTO.SportingGroundDTO;
+import dto.SportingGroundDTO;
 
 import java.sql.SQLException;
 

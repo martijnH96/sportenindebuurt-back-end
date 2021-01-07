@@ -1,9 +1,9 @@
-package DAO;
+package dao;
 
 //TODO: fix SQLinjection
 
-import DTO.UserDTO;
-import Database.Database;
+import dto.UserDTO;
+import database.Database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

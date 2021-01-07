@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import DTO.FieldDTO;
+import dto.FieldDTO;
 
 import java.sql.SQLException;
 

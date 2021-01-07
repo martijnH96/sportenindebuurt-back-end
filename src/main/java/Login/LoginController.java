@@ -1,7 +1,8 @@
+package Login;
+
 import DTO.UserDTO;
 
 import javax.inject.Inject;
-import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -11,6 +12,11 @@ public class LoginController {
 
 
     private LoginService loginService;
+
+    @Inject
+    public void setLoginService(LoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @GET
     @Path("/login")
@@ -34,8 +40,5 @@ public class LoginController {
         return Response.status(Response.Status.FORBIDDEN).build();
     }
 
-//    @Inject
-//    public void setLoginService(LoginService loginService) {
-//        this.loginService = loginService;
-//    }
+//
 }

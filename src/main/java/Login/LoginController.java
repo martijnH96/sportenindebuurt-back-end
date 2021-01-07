@@ -30,7 +30,6 @@ public class LoginController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(UserDTO userDTO) {
-        loginService = new LoginService();
         boolean loggedin = loginService.login(userDTO.getUser(), userDTO.getPassword());
         if (loggedin) {
             return Response.status(Response.Status.OK).entity(userDTO).build();

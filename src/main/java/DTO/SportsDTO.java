@@ -1,8 +1,10 @@
 package DTO;
 
+import static java.lang.Math.round;
+
 public class SportsDTO {
-    private String sport;
-    private double sportLevel;
+    String sport;
+    double sportLevel;
 
     public void setSport(String sport) {
         this.sport = sport;
@@ -13,7 +15,7 @@ public class SportsDTO {
     }
 
     public double getSportLevel() {
-        return sportLevel;
+        return round(sportLevel);
     }
 
     public void setSportLevel(double sportLevel) {

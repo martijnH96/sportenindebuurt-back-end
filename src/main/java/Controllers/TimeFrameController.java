@@ -13,10 +13,10 @@ public class TimeFrameController {
     private TimeFrameService timeFrameService;
 
     @Inject
-    private void setTimeService(TimeFrameService timeFrameService){this.timeFrameService = timeFrameService;}
+    public void setTimeService(TimeFrameService timeFrameService){this.timeFrameService = timeFrameService;}
 
     @GET
-    @Path("/sports")
+    @Path("/times")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTimes(){
         return null;

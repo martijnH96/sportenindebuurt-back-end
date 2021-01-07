@@ -2,12 +2,17 @@ package Controllers;
 
 import DTO.ListDTO.SportsListDTO;
 import DTO.ListDTO.TimeFrameListDTO;
+import DTO.SportsDTO;
 import Services.PreferenceService;
 
 import javax.inject.Inject;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
+import java.util.Map;
 
 @Path("/pref")
 public class PreferenceController {
@@ -29,8 +34,10 @@ public class PreferenceController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response insertPreferenceTime(TimeFrameListDTO timeFrameListDTO){
-        preferenceService.insertTime(timeFrameListDTO);
-        return Response.status(Response.Status.CREATED).entity(timeFrameListDTO.getTimeFrameDTOList().get(0)).build();
+        if(preferenceService.insertTime(timeFrameListDTO)){
+            return Response.status(Response.Status.CREATED).entity(timeFrameListDTO.getTimeFrameDTOList().get(0)).build();
+        }
+        return null;
     }
 
     @POST
@@ -38,8 +45,10 @@ public class PreferenceController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response insertPreferenceSports(SportsListDTO sportsListDTO){
-        preferenceService.insertSports(sportsListDTO);
-        return Response.status(Response.Status.CREATED).entity(sportsListDTO.getSportsDTOList().get(0)).build();
+        if(preferenceService.insertSports(sportsListDTO)){
+            return Response.status(Response.Status.CREATED).build();
+        }
+        return null;
     }
 
 }

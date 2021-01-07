@@ -29,7 +29,6 @@ public class LoginController {
     public Response login(UserDTO userDTO) {
         boolean loggedin = loginService.login(userDTO.getUser(), userDTO.getPassword());
         if (loggedin) {
-//            tokenDAO.setTokenToUser(jsonObject.getString("user"), token.getToken());
             return Response.status(Response.Status.OK).entity(userDTO).build();
         }
         return Response.status(Response.Status.FORBIDDEN).build();

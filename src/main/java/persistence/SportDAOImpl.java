@@ -1,4 +1,4 @@
-package dao;
+package persistece;
 
 //TODO: fix SQLinjection
 

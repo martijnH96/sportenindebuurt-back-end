@@ -1,4 +1,4 @@
-package DAO;
+package persistence;
 
 import DTO.SportDTO;
 import org.junit.jupiter.api.AfterEach;
@@ -9,7 +9,6 @@ import org.junit.rules.ExpectedException;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class SportDAOTest {
 	SportDAOImpl sportDAO;

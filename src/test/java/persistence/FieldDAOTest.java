@@ -1,6 +1,6 @@
-package DAO;
+package persistence;
 
-import DTO.UserDTO;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,16 +9,15 @@ import org.junit.rules.ExpectedException;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class UserDAOTest {
-	UserDAOImpl userDAO;
+public class FieldDAOTest {
+	FieldDAOImpl fieldDAO;
 	public final ExpectedException exception = ExpectedException.none();
 
 	@BeforeEach
 	public void setup(){
 		//komt nog wel
-		userDAO = new UserDAOImpl();
+		fieldDAO = new FieldDAOImpl();
 	}
 
 	@AfterEach

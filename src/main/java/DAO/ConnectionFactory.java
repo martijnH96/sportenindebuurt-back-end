@@ -18,11 +18,11 @@ public class ConnectionFactory {
 			);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new MyDBException(sqlException);
+			throw new sportenInDeBuurtPersistenceException(sqlException);
 		}
 	}
 
-	private Properties loadProperties() throws MyDBException {
+	private Properties loadProperties() throws sportenInDeBuurtPersistenceException {
 		var properties = new Properties();
 		var propertiesResource = this.getClass().getResourceAsStream("/Database.properties");
 
@@ -30,7 +30,7 @@ public class ConnectionFactory {
 			properties.load(propertiesResource);
 		} catch (IOException e) {
 			e.printStackTrace();
-			throw new MyDBException("there was an error reading the databse properties");
+			throw new sportenInDeBuurtPersistenceException("there was an error reading the databse properties");
 		}
 		return properties;
 	}

@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 public class sportenInDeBuurtPersistenceException extends Exception {
 	public sportenInDeBuurtPersistenceException(Exception exception){

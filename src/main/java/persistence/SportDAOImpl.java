@@ -1,4 +1,4 @@
-package persistece;
+package persistence;
 
 //TODO: fix SQLinjection
 

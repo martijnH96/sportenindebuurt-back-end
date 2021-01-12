@@ -1,6 +1,6 @@
-package DTO.ListDTO;
+package nl.hp2consulting.sportenindebuurt.dto;
 
-import DTO.SportsDTO;
+import nl.hp2consulting.sportenindebuurt.dto.SportsDTO;
 
 import java.util.List;
 

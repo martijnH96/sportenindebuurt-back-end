@@ -1,6 +1,6 @@
-package Controllers;
+package nl.hp2consulting.sportenindebuurt.controller;
 
-import Services.SportService;
+import nl.hp2consulting.sportenindebuurt.service.SportService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

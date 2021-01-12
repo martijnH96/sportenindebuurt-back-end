@@ -1,5 +1,5 @@
-package Controllers;
-import Services.TimeFrameService;
+package nl.hp2consulting.sportenindebuurt.controller;
+import nl.hp2consulting.sportenindebuurt.service.TimeFrameService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

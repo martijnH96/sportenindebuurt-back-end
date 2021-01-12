@@ -1,4 +1,4 @@
-package DTO;
+package nl.hp2consulting.sportenindebuurt.dto;
 
 import static java.lang.Math.round;
 

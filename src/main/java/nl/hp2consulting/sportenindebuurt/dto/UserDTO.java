@@ -1,4 +1,4 @@
-package DTO;
+package nl.hp2consulting.sportenindebuurt.dto;
 
 public class UserDTO {
     private String user;

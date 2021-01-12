@@ -1,4 +1,7 @@
-import DTO.UserDTO;
+package nl.hp2consulting.sportenindebuurt.controller;
+
+import nl.hp2consulting.sportenindebuurt.dto.UserDTO;
+import nl.hp2consulting.sportenindebuurt.service.LoginService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

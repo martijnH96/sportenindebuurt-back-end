@@ -1,3 +1,5 @@
+package nl.hp2consulting.sportenindebuurt.service;
+
 import java.sql.*;
 
 public class LoginService {
@@ -13,7 +15,7 @@ public class LoginService {
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM Sporter WHERE email = ?");
             stmt.setString(1, username);
             ResultSet result = stmt.executeQuery();
-            if (result.first()) {
+            while (result.next()) {
                 return username.equals(result.getString("email")) && password.equals(result.getString("wachtwoord"));
             }
         } catch (Exception e) {

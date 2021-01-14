@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 // voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
 
@@ -27,12 +28,14 @@ import java.sql.SQLException;
 
 public class Database implements verbinding{
 
+	Properties property;
+
 	public Database(){
 		//nothing to do
 	}
 
 	public Connection verbind() throws SQLException {
-		return maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+		return maakVerbinding(property.getProperty("databseIP"), "application", property.getProperty("databsePW"));
 	}
 
 	public void closeConnection(Connection conn) throws SQLException{

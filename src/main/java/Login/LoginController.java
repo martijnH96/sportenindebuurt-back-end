@@ -1,6 +1,6 @@
 package Login;
 
-import DTO.UserDTO;
+import dto.UserDTO;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

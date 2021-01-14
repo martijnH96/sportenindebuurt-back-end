@@ -1,6 +1,6 @@
 package Login;
 
-import DTO.UserDTO;
+import dto.UserDTO;
 import org.apache.catalina.User;
 import org.apache.commons.httpclient.HttpStatus;
 import org.junit.Assert;

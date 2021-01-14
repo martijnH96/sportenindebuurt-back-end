@@ -1,3 +1,0 @@
-Database: jdbc:h2:~testDB
-User: sa
-Password: 

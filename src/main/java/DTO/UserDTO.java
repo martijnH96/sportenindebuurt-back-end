@@ -12,6 +12,10 @@ public class UserDTO {
 	private String password; //ik weet niet of dit handig is om mee te geven
 	private int adres;
 
+	public UserDTO(){
+
+	}
+
 	public UserDTO(int ID, String name, String lastname, String email, Date dateOfBirth, String password, int adres) {
 		this.ID = ID;
 		this.name = name;
@@ -26,7 +30,7 @@ public class UserDTO {
 		return ID;
 	}
 
-	public String getName() {
+	public String getUser() {
 		return name;
 	}
 
@@ -54,7 +58,7 @@ public class UserDTO {
 		this.ID = ID;
 	}
 
-	public void setName(String name) {
+	public void setUser(String name) {
 		this.name = name;
 	}
 

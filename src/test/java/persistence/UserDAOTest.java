@@ -59,7 +59,12 @@ public class UserDAOTest {
 	@Test
 	public void updateTest() throws Exception {
 		loadDatabaseFixture("UserBaseData.sql");
-		//var userToUpdate = new UserDTO(2, "testers", );
+		var useerBeforeUpdate = new UserDTO(2, "tester", "test", "testertest@gmail.com", Date.valueOf("1970-01-01"), "test", 1);
+		var userToUpdate = new UserDTO(2, "testers", "test", "testertest@gmail.com", Date.valueOf("1970-01-01"), "test", 1);
+		sut.update(userToUpdate);
+		var userAfterUpdate = sut.selectAll();
+		Assertions.assertTrue(userAfterUpdate.contains(userToUpdate));
+
 	}
 
 	@Test

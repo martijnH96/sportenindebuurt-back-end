@@ -1,5 +1,6 @@
 package Database;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,15 +28,19 @@ import java.util.Properties;
 * */
 
 public class Database implements verbinding{
-
 	Properties property;
+	InputStreamReader fs;
+	final String user = "application";
 
 	public Database(){
 		//nothing to do
 	}
 
-	public Connection verbind() throws SQLException {
-		return maakVerbinding(property.getProperty("databseIP"), "application", property.getProperty("databsePW"));
+	public Connection verbind() throws SQLException, IOException {
+	property = new Properties();
+	property.load(new FileInputStream("src/DB.properties"));
+
+		return maakVerbinding(property.getProperty("databaseIP"), user, property.getProperty("databasePW"));
 	}
 
 	public void closeConnection(Connection conn) throws SQLException{
@@ -43,7 +48,6 @@ public class Database implements verbinding{
 	}
 
 	public ResultSet select(String table, String columns, String[] where, Connection conn) throws SQLException {
-		//conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
 
 		String sql = "SELECT " + columns + " FROM " + table;
 
@@ -69,8 +73,8 @@ public class Database implements verbinding{
 		return resultSet;
 	}
 
-	public int insert(String table, String columns, String[] data, Connection conn) throws SQLException {
-		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+	public int insert(String table, String columns, String[] data) throws SQLException {
+		Connection conn = maakVerbinding(property.getProperty("databaseIP"), user, property.getProperty("databasePW"));
 
 		String sql;
 		if(columns.isEmpty()){
@@ -104,7 +108,7 @@ public class Database implements verbinding{
 	}
 
 	public int update(String table, String[] columns, String[] data, String[] where, Connection conn) throws SQLException {
-		conn = conn = maakVerbinding("jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt", "application", "cM1l:Qze");
+		conn = conn = maakVerbinding(property.getProperty("databaseIP"), user, property.getProperty("databasePW"));
 
 		String sql = "INSERT " + table + " SET ";
 

@@ -53,24 +53,20 @@ public class Database implements verbinding{
 
 		if(where.length != 0){
 			sql.concat(" WHERE " + where[0]);
+			//ik snap dit niet ^^
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
+		//ik snap dit niet ^^
 
 		if(where.length != 0) {
 
 			for (int i = 1; i < where.length; i++){
 				stmt.setString(i, where[i]);
 			}
-			//stmt.setString(1, "*");
-			//stmt.setString(1, "Sport");
 		}
 
-		System.out.println(sql);
-
-		ResultSet resultSet = stmt.executeQuery();
-
-		return resultSet;
+		return stmt.executeQuery();
 	}
 
 	public int insert(String table, String columns, String[] data) throws SQLException {
@@ -94,7 +90,6 @@ public class Database implements verbinding{
 		sql.concat(")");
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		//System.out.println("perpared");
 
 		for(int i = 0; i < data.length; i++){
 			stmt.setString(i + 1, data[i]);
@@ -107,8 +102,8 @@ public class Database implements verbinding{
 		return i;
 	}
 
-	public int update(String table, String[] columns, String[] data, String[] where, Connection conn) throws SQLException {
-		conn = conn = maakVerbinding(property.getProperty("databaseIP"), user, property.getProperty("databasePW"));
+	public int update(String table, String[] columns, String[] data) throws SQLException {
+		Connection conn = maakVerbinding(property.getProperty("databaseIP"), user, property.getProperty("databasePW"));
 
 		String sql = "INSERT " + table + " SET ";
 

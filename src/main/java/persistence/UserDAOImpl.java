@@ -40,12 +40,12 @@ public class UserDAOImpl{
 		return users;
 	}
 
-	public UserDTO selectOnId(){
+	public UserDTO selectOnId(int id){
 		UserDTO stop = null;
 		return stop;
 	}
 
-	public UserDTO selectOnEmail(){
+	public UserDTO selectOnEmail(String email){
 		UserDTO stop = null;
 		return stop;
 	}

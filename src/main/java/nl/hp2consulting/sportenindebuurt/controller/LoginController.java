@@ -1,6 +1,7 @@
 package nl.hp2consulting.sportenindebuurt.controller;
 
 import nl.hp2consulting.sportenindebuurt.dto.UserDTO;
+import nl.hp2consulting.sportenindebuurt.exceptions.ConnectionException;
 import nl.hp2consulting.sportenindebuurt.service.LoginService;
 
 import javax.inject.Inject;
@@ -18,20 +19,12 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    @GET
-    @Path("/login")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getData(){
-        return Response.status(200).entity("jsonObject").build();
-    }
-
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(UserDTO userDTO) {
-        boolean loggedin = loginService.login(userDTO.getUser(), userDTO.getPassword());
-        if (loggedin) {
+    public Response login(UserDTO userDTO) throws ConnectionException {
+        if (loginService.login(userDTO.getUser(), userDTO.getPassword())) {
             return Response.status(Response.Status.OK).entity(userDTO).build();
         }
         return Response.status(Response.Status.FORBIDDEN).build();

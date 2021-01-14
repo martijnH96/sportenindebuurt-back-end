@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 // voorbeeldcode: https://www.javatpoint.com/PreparedStatement-interface
 
@@ -27,10 +26,9 @@ import java.util.ArrayList;
 * */
 
 public class Database implements verbinding{
-	//private Connection conn;
 
 	public Database(){
-		//niets te doen
+		//nothing to do
 	}
 
 	public Connection verbind() throws SQLException {

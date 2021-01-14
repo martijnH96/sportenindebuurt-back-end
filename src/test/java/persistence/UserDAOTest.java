@@ -44,18 +44,36 @@ public class UserDAOTest {
 	public void selectOnEmailTest() throws Exception {
 		loadDatabaseFixture("UserBaseData.sql");
 		var actualUser = sut.selectOnEmail("testertest@gmail.com");
-		Assertions.assertEquals("testertest@gmail.com", actualUser.getEmail());
+		var wanetedUser = new UserDTO(2, "tester", "test", "testertest@gmail.com", Date.valueOf("1970-01-01"), "test", 1);
+		Assertions.assertEquals(wanetedUser, actualUser);
 	}
 
 	@Test
 	public void selectOnId() throws Exception {
 		loadDatabaseFixture("UserBaseData.sql");
 		var actualUser = sut.selectOnId(2);
-		Assertions.assertEquals("tester", actualUser.getUser());
+		var wanetedUser = new UserDTO(2, "tester", "test", "testertest@gmail.com", Date.valueOf("1970-01-01"), "test", 1);
+		Assertions.assertEquals(wanetedUser, actualUser);
 	}
 
 	@Test
-	public void
+	public void updateTest() throws Exception {
+		loadDatabaseFixture("UserBaseData.sql");
+		//var userToUpdate = new UserDTO(2, "testers", );
+	}
 
 	@Test
+	public void updatedUserDoesNoteExit() throws Exception {
+		loadDatabaseFixture("UserBaseData.sql");
+	}
+
+	@Test
+	public void deleteTest() throws Exception {
+		loadDatabaseFixture("UserBaseData.sql");
+	}
+
+	@Test
+	public void deletedUserDoesNotExist() throws Exception {
+		loadDatabaseFixture("UserBaseData.sql");
+	}
 }

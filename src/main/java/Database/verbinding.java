@@ -7,11 +7,11 @@ import java.sql.SQLException;
 public interface verbinding {
 	public default Connection maakVerbinding(String db, String user, String password) throws SQLException { //dit moet worden afgevangen
 
-		//link naar de DB
+		//link to the DB
 		//String JDBCURL="jdbc:mysql://145.74.104.78:3306/sportenInDeBuurt";
 		Connection con = null;
 
-		//maak verbinding
+		//make connection
 		con = DriverManager.getConnection(db,user,password);
 		System.out.println("connection is established");
 

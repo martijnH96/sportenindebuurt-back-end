@@ -18,21 +18,21 @@ public class PreferenceController {
     private void setPreferenceService(PreferenceService preferenceService){this.preferenceService = preferenceService;}
 
     @POST
-    @Path("/time")
+    @Path("/time/{sporterID}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreferenceTime(TimeFrameListDTO timeFrameListDTO, int sporterID) throws ConnectionException {
+    public Response insertPreferenceTime(TimeFrameListDTO timeFrameListDTO, @PathParam("sporterID") int sporterID) throws ConnectionException {
         if(preferenceService.insertTime(timeFrameListDTO, sporterID)){ //exceptions toevoegen
-            return Response.status(Response.Status.CREATED).entity(timeFrameListDTO.getTimeFrameDTOList().get(0)).build();
+            return Response.status(Response.Status.CREATED).build();
         }
         return null;
     }
 
     @POST
-    @Path("/sports")
+    @Path("/sports/{sporterID}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreferenceSports(SportsListDTO sportsListDTO, int sporterID) throws ConnectionException {
+    public Response insertPreferenceSports(SportsListDTO sportsListDTO, @PathParam("sporterID") int sporterID) throws ConnectionException {
         if(preferenceService.insertSports(sportsListDTO, sporterID)){
             return Response.status(Response.Status.CREATED).build();
         }

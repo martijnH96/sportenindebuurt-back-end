@@ -24,8 +24,9 @@ public class LoginController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(UserDTO userDTO) throws ConnectionException {
-        if (loginService.login(userDTO.getUser(), userDTO.getPassword())) {
-            return Response.status(Response.Status.OK).entity(userDTO).build();
+        var sporterID = loginService.login(userDTO.getUser(), userDTO.getPassword());
+        if (sporterID != 0) {
+            return Response.status(Response.Status.OK).entity(sporterID).build();
         }
         return Response.status(Response.Status.FORBIDDEN).build();
     }

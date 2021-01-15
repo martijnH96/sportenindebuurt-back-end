@@ -18,12 +18,16 @@ public class SportService {
     }
 
 
-    public List<SportsDTO> getSports(){
+    public List<SportsDTO> getSports() throws ConnectionException {
         return sportsDAO.getSports();
     }
 
     public boolean insertSports(SportsListDTO sportsDTOList, int sporterID) throws ConnectionException {
         return sportsDAO.insertSports(sportsDTOList, sporterID);
+    }
+
+    public List<SportsDTO> getSportsFromUser(int sporterID) throws ConnectionException {
+        return sportsDAO.getSportsFromUser(sporterID);
     }
 
 

@@ -1,5 +1,7 @@
 package nl.hp2consulting.sportenindebuurt.connection;
 
+import nl.hp2consulting.sportenindebuurt.exceptions.ConnectionException;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +11,7 @@ import java.util.Properties;
 public class ConnectionFac {
     private static final String PROPERTY_LOCATION = "/database.properties";
 
-    public Connection getConnection() throws SQLException, ClassNotFoundException {
+    public Connection getConnection() throws ConnectionException, ClassNotFoundException, SQLException {
         var properties = loadProperties();
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(properties.getProperty("db.url"),

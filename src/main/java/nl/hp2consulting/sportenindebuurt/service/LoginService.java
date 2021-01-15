@@ -14,9 +14,7 @@ public class LoginService {
         this.userDAO = userDAO;
     }
 
-    public boolean login(String username, String password) throws ConnectionException {
+    public int login(String username, String password) throws ConnectionException {
         return userDAO.login(username, password);
     }
-
-
 }

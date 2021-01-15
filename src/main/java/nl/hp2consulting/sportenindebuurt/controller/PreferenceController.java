@@ -2,6 +2,7 @@ package nl.hp2consulting.sportenindebuurt.controller;
 
 import nl.hp2consulting.sportenindebuurt.dto.SportsListDTO;
 import nl.hp2consulting.sportenindebuurt.dto.TimeFrameListDTO;
+import nl.hp2consulting.sportenindebuurt.exceptions.ConnectionException;
 import nl.hp2consulting.sportenindebuurt.service.PreferenceService;
 
 import javax.inject.Inject;
@@ -20,8 +21,8 @@ public class PreferenceController {
     @Path("/time")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreferenceTime(TimeFrameListDTO timeFrameListDTO){
-        if(preferenceService.insertTime(timeFrameListDTO)){ //exceptions toevoegen
+    public Response insertPreferenceTime(TimeFrameListDTO timeFrameListDTO, int sporterID) throws ConnectionException {
+        if(preferenceService.insertTime(timeFrameListDTO, sporterID)){ //exceptions toevoegen
             return Response.status(Response.Status.CREATED).entity(timeFrameListDTO.getTimeFrameDTOList().get(0)).build();
         }
         return null;
@@ -31,8 +32,8 @@ public class PreferenceController {
     @Path("/sports")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertPreferenceSports(SportsListDTO sportsListDTO){
-        if(preferenceService.insertSports(sportsListDTO)){
+    public Response insertPreferenceSports(SportsListDTO sportsListDTO, int sporterID) throws ConnectionException {
+        if(preferenceService.insertSports(sportsListDTO, sporterID)){
             return Response.status(Response.Status.CREATED).build();
         }
         return null;

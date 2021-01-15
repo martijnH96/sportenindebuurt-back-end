@@ -53,11 +53,9 @@ public class Database implements verbinding{
 
 		if(where.length != 0){
 			sql.concat(" WHERE " + where[0]);
-			//ik snap dit niet ^^
 		}
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		//ik snap dit niet ^^
 
 		if(where.length != 0) {
 
